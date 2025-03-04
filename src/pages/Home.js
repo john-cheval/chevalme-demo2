@@ -33,7 +33,7 @@ import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-export default function HomePage() {
+export default function HomePage(/* homeContent */) {
   const [split, setSplit] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -84,8 +84,8 @@ export default function HomePage() {
       !servicesLoading &&
       !clientLoading &&
       // !footerLoading &&
-      !blogsLoading &&
-      !dataLoading
+      !blogsLoading /* &&
+      !dataLoading */
     ) {
       setSplit(gallery?.show_off_gallery.length / 2);
       setLoading(false);
@@ -99,7 +99,7 @@ export default function HomePage() {
     clientLoading,
     blogsLoading,
     // footerLoading,
-    dataLoading,
+    // dataLoading,
   ]);
 
   return loading ? (
