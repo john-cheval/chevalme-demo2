@@ -113,7 +113,7 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chevalme" />
-        <meta name="google-site-verification" content="YbB6z89M0yPuoamiqG8bPFz3wMP1p5QRhXO8ni6oxXk" />
+        <meta name="google-site-verification" content="LI96np1O26yResby75_7Mzy4Ro-bLpGR2I5H8YKndwQ" />
       </head>
       <body className={sora.variable}>
         <div>
