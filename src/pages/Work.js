@@ -40,12 +40,12 @@ function WorkPage({
     </>
   ) : (
     <>
-      {/* <NewHeader
+      <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      /> */}
+      />
       <WorkHeader data={workHeaderData} />
       <WorkBody data={data} categories={categories} />
       <NewFooter />

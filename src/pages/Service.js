@@ -41,12 +41,12 @@ function ServicePage({
     </>
   ) : (
     <>
-      {/* <NewHeader
+      <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      /> */}
+      />
       <ServiceHeader data={serviceHeader} />
       <ServiceListNew data={data} />
       <NewFooter />

@@ -25,12 +25,12 @@ function BlogsPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      {/* <NewHeader
+      <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      /> */}
+      />
       <BlogsSection1 data={data} />
       <NewFooter />
     </>

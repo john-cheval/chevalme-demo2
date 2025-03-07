@@ -30,12 +30,12 @@ function BlogsInnerPage({ id, navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      {/* <NewHeader
+      <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      /> */}
+      />
       <BlogsInnerSection1 data={data} />
       <BlogsInnerSection2 data={data2} blogID={id} />
       <NewFooter />

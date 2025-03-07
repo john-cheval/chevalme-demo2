@@ -48,12 +48,12 @@ function ContactPage({
   ) : (
     <>
       <div className="bg-white m-0 p-0">
-        {/* <NewHeader
+        <NewHeader
           navLinks={navLinks}
           codeLinks={codeLinks}
           craftLinks={craftLinks}
           convertLinks={convertLinks}
-        /> */}
+        />
         <ContactTopSection />
         <ContactMiddleSection />
         <ContactForm services={services} title="Start a conversation." />
