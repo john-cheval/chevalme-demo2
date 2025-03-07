@@ -55,12 +55,12 @@ function AboutPage({
     </>
   ) : (
     <>
-      <NewHeader
+      {/* <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      />
+      /> */}
       {aboutData && (
         <div className="bg-about-member-gradient">
           <AboutHeader

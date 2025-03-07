@@ -51,7 +51,7 @@ function WorkInnerSection1({ data }) {
             <div className="flex flex-col space-y-2">
               <p className="font-satoshi text-[#101763]">Expertise</p>
               <div className="h-fit gap-1 w-fit max-w-[380px]  flex flex-wrap items-center  ">
-                {data?.projects_category.map((category, index) => (
+                {data?.projects_category?.map((category, index) => (
                   <button
                     key={index}
                     className="font-sora text-[10px]  transition-colors duration-500  py-2 px-4 w-fit   bg-[#E1E1E1] text-[#101763] rounded-3xl"

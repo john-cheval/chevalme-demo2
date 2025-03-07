@@ -77,7 +77,7 @@ const ServiceInnerSwipper = ({ slides }) => {
         </div> */}
 
         <div className="space-y-4 hidden  absolute top-16 z-10 right-20 md:flex flex-col items-end h-[87px]">
-          {slides.map((_, index) => (
+          {slides?.map((_, index) => (
             <button
               key={index}
               onClick={() => {

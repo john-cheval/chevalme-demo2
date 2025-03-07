@@ -71,12 +71,12 @@ export default function HomePage({
     </>
   ) : (
     <>
-      <NewHeader
+      {/* <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      />
+      /> */}
       {homeContent && homeContent.web_title && (
         <Section1
           title={homeContent.web_title}

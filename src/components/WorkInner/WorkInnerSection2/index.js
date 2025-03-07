@@ -46,7 +46,7 @@ function WorkInnerSection2({ data, ID, link }) {
             {data &&
               Object.keys(data)
                 ?.filter((item) => data[item]?.post_name !== ID)
-                .map((key, index) => (
+                ?.map((key, index) => (
                   <SwiperSlide
                     key={data[key]?.ID}
                     onClick={() =>

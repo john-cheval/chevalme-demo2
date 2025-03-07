@@ -35,12 +35,12 @@ const PrivacyPolicyPage = ({
     </>
   ) : (
     <>
-      <NewHeader
+      {/* <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      />
+      /> */}
       <PrivacyPolicyContent
         content={privacyData?.post_content}
         title={privacyData?.post_title}

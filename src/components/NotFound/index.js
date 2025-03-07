@@ -78,7 +78,7 @@ const NotFoundContent = () => {
       var matterCircle = document.querySelectorAll(".dm-matter-elem-circle");
 
       function createCircles() {
-        return Array.from(matterCircle).map(function (matterCircleElem) {
+        return Array.from(matterCircle)?.map(function (matterCircleElem) {
           var circleElemWidth = matterCircleElem.offsetWidth;
           var circleElemHeight = matterCircleElem.offsetHeight;
           var circleElemPosX =

@@ -418,7 +418,7 @@ const NewHeader = ({
             id="mblMenuItems"
             className="flex flex-col font-sora font-semibold text-3xl text-[#101763] items-center justify-center w-screen h-fit space-y-4 px-5 sm:px-10 md:px-12"
           >
-            {navLinks.map(({ name, path }, index) => {
+            {navLinks?.map(({ name, path }, index) => {
               return (
                 <div key={name}>
                   <div className="flex justify-center w-full text-center pt-4 items-center cursor-pointer transition-colors duration-300 uppercase">
