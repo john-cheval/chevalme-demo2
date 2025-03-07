@@ -1,71 +1,47 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import CraftImage from "../../../public/Header/craft.png";
+import { ServiceList } from "./ServiceListN";
 
-const CraftCenter = ({ craftLinks }) => {
-  const { branding, customDesign, uiUx } = craftLinks;
+const CraftCenter = ({ link }) => {
+  const {
+    3812: craft,
+    3810: uiUx2,
+    3808: branding2,
+    3809: customDesign2,
+  } = link;
+
+  const sections = {
+    "UI/UX": uiUx2,
+    Branding: branding2,
+    "Custom Design": customDesign2,
+  };
+
   return (
     <>
       <div
         id="rightSideCraft"
         className="col-span-6 bigMenuCol px-9 p-10 flex bigMain-gap gap-x-24"
       >
-        <div className="space-y-2">
-          <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
-            <Link href="/service/ui-ux">UI / UX</Link>
-          </h2>
-          <ul className="space-y-3 linksGap">
-            {uiUx?.map((data, index) => (
-              <li
-                className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
-                key={index}
-              >
-                <Link href={data?.link}>{data?.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {craft?.map((section) => {
+          const { title, url } = section;
+          const sectionData = sections[title];
 
-        <div className="space-y-2">
-          <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
-            <Link href="/service/branding">Branding</Link>
-          </h2>
-          <ul className="space-y-3 linksGap">
-            {branding?.map((data, index) => (
-              <li
-                className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
-                key={index}
-              >
-                <Link href={data?.link}>{data?.title}</Link>
-                {data?.subTitle && (
-                  <span className="text-xs block">{data?.subTitle}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="space-y-2">
-          <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
-            <Link href="/service/custom-design">Custom Design</Link>
-          </h2>
-          <ul className="space-y-3 linksGap">
-            {customDesign?.map((data, index) => (
-              <li
-                className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
-                key={index}
-              >
-                <Link href={data?.link}>{data?.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          return (
+            <ServiceList
+              key={title}
+              title={title}
+              data={sectionData}
+              url={url}
+            />
+          );
+        })}
       </div>
+
       <div className="relative col-span-4 w-full big_image h-full">
         <Image
           src={CraftImage}
-          alt="codeImage"
+          alt="craftImage"
           className="object-cover w-full h-full"
           height={0}
           width={0}

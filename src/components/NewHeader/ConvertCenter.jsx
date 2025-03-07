@@ -1,73 +1,34 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import ConvertImage from "../../../public/Header/convert.png";
+import { ServiceList } from "./ServiceListN";
 
-const ConvertCenter = ({ convertLinks }) => {
-  const { digitalMarketing, seo, socialMedia } = convertLinks;
+const ConvertCenter = ({ link }) => {
+  const { 3814: covert, 3833: SEO, 3834: SMM, 3832: DM } = link;
+  const sections = {
+    "Search Engine Optimization (SEO)": SEO,
+    "Social Media Management": SMM,
+    "Digital Marketing": DM,
+  };
   return (
     <>
       <div
         id="rightSideConvert"
         className="col-span-7 bigMenuCol px-9 p-10 flex bigMain-gap gap-x-24"
       >
-        <div className="space-y-2">
-          <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
-            <Link href="/service/search-engine-optimization-seo">
-              Search Engine Optimisation
-            </Link>
-          </h2>
-          <ul className="space-y-3 linksGap">
-            {seo?.map((data, index) => (
-              <li
-                className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
-                key={index}
-              >
-                <Link href={data?.link}>{data?.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {covert?.map((section) => {
+          const { title, url } = section;
+          const sectionData = sections[title];
 
-        <div className="space-y-2">
-          <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
-            <Link href="/service/social-media-management">
-              Social Media Management
-            </Link>
-          </h2>
-          <ul className="space-y-3 linksGap">
-            {socialMedia?.map((data, index) => (
-              <li
-                className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
-                key={index}
-              >
-                <Link href={data?.link}>{data?.title}</Link>
-                {data?.subTitle && (
-                  <span className="text-xs block">{data?.subTitle}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="space-y-2">
-          <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
-            <Link href="/service/digital-marketing">Digital Marketing</Link>
-          </h2>
-          <ul className="space-y-3 linksGap">
-            {digitalMarketing?.map((data, index) => (
-              <li
-                className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
-                key={index}
-              >
-                <Link href={data?.link}>{data?.title}</Link>
-                {data?.subTitle && (
-                  <span className="text-xs block">{data?.subTitle}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+          return (
+            <ServiceList
+              key={title}
+              title={title}
+              data={sectionData}
+              url={url}
+            />
+          );
+        })}
       </div>
 
       <div className="relative col-span-3 w-full h-auto big_image">

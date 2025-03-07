@@ -249,7 +249,7 @@ const ContactForm = ({ services, title }) => {
             </label>
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-[8px] mt-[23px]">
+          <div className="flex flex-col justify-center items-center gap-[15px] mt-[23px]">
             <ReCaptcha
               siteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               callback={handleToken}

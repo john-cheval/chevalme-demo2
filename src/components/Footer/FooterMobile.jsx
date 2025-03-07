@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import add from "../../../public/Footer/add.svg";
 import Link from "next/link";
 import Image from "next/image";
-import { location, ourServices } from "@/data/FooterLinks";
 
-const FooterMobile = () => {
+const FooterMobile = ({ links }) => {
+  console.log(links[0], "this is the links");
   const [isServeOpen, setIsServeOpen] = useState(false);
   const [isServiceOpen, setIsServiceOpen] = useState(false);
   const [isConnectOpen, setIsConnectOpen] = useState(false);
@@ -39,7 +39,7 @@ const FooterMobile = () => {
             onClick={toggleServe}
             aria-expanded={isServeOpen}
           >
-            We Serve In
+            {links[0]?.title}
             <Image
               src={add}
               alt="add"
@@ -56,13 +56,13 @@ const FooterMobile = () => {
               : "max-h-0 opacity-0"
           }`}
         >
-          {location?.map((item, index) => (
+          {links[0]?.children?.map((item, index) => (
             <Link
               key={index}
               className="text-white font-satoshi text-base font-normal leading-[150%] flex justify-between w-full"
-              href={item.href}
+              href={item?.url}
             >
-              {item.text}
+              {item?.title}
             </Link>
           ))}
         </div>
@@ -77,7 +77,7 @@ const FooterMobile = () => {
             className="text-white font-satoshi text-base font-semibold leading-[150%] flex justify-between w-full py-4"
             onClick={toggleService}
           >
-            Services
+            {links[1]?.title}
             <Image
               src={add}
               alt="add"
@@ -94,19 +94,18 @@ const FooterMobile = () => {
               : "max-h-0 opacity-0"
           }`}
         >
-          {ourServices?.map((item, index) => (
+          {links[1]?.children?.map((item, index) => (
             <Link
               key={index}
               className="text-white font-satoshi text-base font-normal leading-[150%] flex justify-between w-full"
-              href={item.href}
+              href={item.url}
             >
-              {item.text}
+              {item.title}
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Connect Section */}
       <div>
         <div
           className={`border  ${isConnectOpen ? "border-b-0" : "border-[#4c4c4c]"} border-r-0 border-l-0 border-t-0`}

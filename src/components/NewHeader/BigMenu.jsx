@@ -6,11 +6,13 @@ import CraftCenter from "./CraftCenter";
 import ConvertCenter from "./ConvertCenter";
 import Link from "next/link";
 
-const BigMenu = ({ headerRef, codeLinks,craftLinks,convertLinks }) => {
+const BigMenu = ({ headerRef, megaMenuLink }) => {
   const [topOffset, setTopOffset] = useState(0);
   const [activeSection, setActiveSection] = useState("code");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const megaMenuLeft = megaMenuLink && megaMenuLink["3803"];
 
   const handleMouseEnter = (section) => {
     setActiveSection(section);
@@ -59,52 +61,39 @@ const BigMenu = ({ headerRef, codeLinks,craftLinks,convertLinks }) => {
             id="leftSide"
             className="col-span-2  pt-10 border border-r-[#d0d0d0] border-t-0 border-b-0 border-l-0 space-y-5 pb-3"
           >
-            <div className="flex items-center gap-7 group cursor-pointer">
-              <Link
-                href={"/services?section=craft"}
-                className={`${activeSection === "craft" ? "bg-gradient-to-r from-[#101763] to-[#D81100] bg-clip-text text-transparent " : "text-[#a3a3a3] "} font-sora text-3xl font-bold leading-[190%] group-hover:bg-gradient-to-r group-hover:from-[#101763] group-hover:to-[#D81100] 
-                 group-hover:bg-clip-text group-hover:text-transparent`}
-                onMouseEnter={() => handleMouseEnter("craft")}
-              >
-                Craft
-              </Link>
-              <ArrowRight
-                className={`text-[#d81100] ${activeSection === "craft" ? "opacity-100" : "opacity-0"} opacity-0 transform translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 `}
-              />
-            </div>
-
-            <div className="flex items-center gap-7 group cursor-pointer">
-              <Link
-                href={"/services?section=code"}
-                className={`${activeSection === "code" ? "bg-gradient-to-r from-[#101763] to-[#D81100] bg-clip-text text-transparent " : "text-[#a3a3a3] "} font-sora text-3xl font-bold leading-[190%] group-hover:bg-gradient-to-r group-hover:from-[#101763] group-hover:to-[#D81100] 
-                group-hover:bg-clip-text group-hover:text-transparent`}
-                onMouseEnter={() => handleMouseEnter("code")}
-              >
-                Code
-              </Link>
-              <ArrowRight
-                className={`text-[#d81100] ${activeSection === "code" ? "opacity-100" : "opacity-0"} opacity-0 transform translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 `}
-              />
-            </div>
-
-            <div className="flex items-center gap-7 group cursor-pointer">
-              <Link
-                href={"/services?section=convert"}
-                className={`${activeSection === "convert" ? "bg-gradient-to-r from-[#101763] to-[#D81100] bg-clip-text text-transparent " : "text-[#a3a3a3] "} font-sora text-3xl font-bold leading-[190%] group-hover:bg-gradient-to-r group-hover:from-[#101763] group-hover:to-[#D81100] 
-                group-hover:bg-clip-text group-hover:text-transparent`}
-                onMouseEnter={() => handleMouseEnter("convert")}
-              >
-                Convert
-              </Link>
-              <ArrowRight
-                className={`text-[#d81100] ${activeSection === "convert" ? "opacity-100" : "opacity-0"} opacity-0 transform translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 `}
-              />
-            </div>
+            {megaMenuLeft &&
+              megaMenuLeft.map((link) => (
+                <div
+                  key={link.id}
+                  className="flex items-center gap-7 group cursor-pointer"
+                >
+                  <Link
+                    href={link.url}
+                    className={`${
+                      activeSection === link.title.toLowerCase()
+                        ? "bg-gradient-to-r from-[#101763] to-[#D81100] bg-clip-text text-transparent"
+                        : "text-[#a3a3a3]"
+                    } font-sora text-3xl font-bold leading-[190%] group-hover:bg-gradient-to-r group-hover:from-[#101763] group-hover:to-[#D81100] group-hover:bg-clip-text group-hover:text-transparent`}
+                    onMouseEnter={() =>
+                      handleMouseEnter(link.title.toLowerCase())
+                    }
+                  >
+                    {link.title}
+                  </Link>
+                  <ArrowRight
+                    className={`text-[#d81100] ${
+                      activeSection === link.title.toLowerCase()
+                        ? "opacity-100"
+                        : "opacity-0"
+                    } opacity-0 transform translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300`}
+                  />
+                </div>
+              ))}
           </div>
 
-          {activeSection === "code" && <CodeCenter codeLinks={codeLinks} />}
-          {activeSection === "craft" && <CraftCenter craftLinks={craftLinks} />}
-          {activeSection === "convert" && <ConvertCenter convertLinks={convertLinks} />}
+          {activeSection === "code" && <CodeCenter link={megaMenuLink} />}
+          {activeSection === "craft" && <CraftCenter link={megaMenuLink} />}
+          {activeSection === "convert" && <ConvertCenter link={megaMenuLink} />}
         </div>
       </div>
     </div>

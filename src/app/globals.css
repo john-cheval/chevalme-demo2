@@ -760,8 +760,9 @@ input:checked + label .descriptions {
   .workContainer {
     width: 56% !important;
   }
-  .work-header {
-    height: 300px !important;
+  .work-header,
+  .service-header {
+    height: 422px !important;
   }
   .work_header-title {
     font-size: 3rem !important;
@@ -832,5 +833,15 @@ input:checked + label .descriptions {
   }
   .homeCards {
     height: 550px;
+  }
+}
+
+@media (min-width: 2500px) {
+  .service-header,
+  .work-header {
+    height: 697px !important;
+  }
+  .contact-header {
+    padding-top: 445px !important;
   }
 }

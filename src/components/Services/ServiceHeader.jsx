@@ -2,7 +2,7 @@ import React from "react";
 
 const ServiceHeader = ({ data }) => {
   return (
-    <div className="relative w-screen h-[393px] md:h-[500px] lg:h-[697px] sectionPin0 overflow-hidden flex items-center justify-center">
+    <div className="relative w-screen  h-[367px] md:h-[422px] sectionPin0 overflow-hidden flex items-center  justify-center service-header">
       <div>
         <video
           playsInline

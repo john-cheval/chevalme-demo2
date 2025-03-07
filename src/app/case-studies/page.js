@@ -33,27 +33,17 @@ export async function generateMetadata(parent) {
 }
 
 export default async function CaseStudy() {
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
-
-  const datas = await fetchData(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/projects?type=case_study"
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
   );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
+
   return (
     <CaseStudies
-      navLinks={navLinks}
-      codeLinks={codeLinks}
-      craftLinks={craftLinks}
-      convertLinks={convertLinks}
-      data={datas}
+      MainNavLinks={MainNavLinks}
+      MainFooterLinks={MainFooterLinks.menu_tree}
     />
   );
 }

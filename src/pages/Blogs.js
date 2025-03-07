@@ -7,7 +7,7 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
 
-function BlogsPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
+function BlogsPage({ MainNavLinks, MainFooterLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data, loading: blogLoading } = useFetch(
@@ -25,14 +25,10 @@ function BlogsPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       <BlogsSection1 data={data} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

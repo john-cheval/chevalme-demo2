@@ -30,13 +30,7 @@ import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 
-function AboutPage({
-  aboutData,
-  codeLinks,
-  craftLinks,
-  convertLinks,
-  navLinks,
-}) {
+function AboutPage({ aboutData, MainNavLinks, MainFooterLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data: clients, loading: clientLoading } = useFetch(
@@ -55,12 +49,8 @@ function AboutPage({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       {aboutData && (
         <div className="bg-about-member-gradient">
           <AboutHeader
@@ -83,7 +73,7 @@ function AboutPage({
 
       {clients && <AboutClients clientData={clients} />}
 
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

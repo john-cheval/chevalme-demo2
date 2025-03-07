@@ -20,16 +20,12 @@ export async function generateMetadata() {
 }
 
 export default async function About() {
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
+  );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
 
   const aboutData = await fetchData(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=100"
@@ -37,10 +33,8 @@ export default async function About() {
   return (
     <AboutPage
       aboutData={aboutData}
-      codeLinks={codeLinks}
-      craftLinks={craftLinks}
-      convertLinks={convertLinks}
-      navLinks={navLinks}
+      MainNavLinks={MainNavLinks}
+      MainFooterLinks={MainFooterLinks.menu_tree}
     />
   );
 }

@@ -14,10 +14,9 @@ import React, { useEffect, useState } from "react";
 function WorkPage({
   workHeaderData,
   data,
-  navLinks,
-  codeLinks,
-  craftLinks,
-  convertLinks,
+
+  MainNavLinks,
+  MainFooterLinks,
 }) {
   const [loading, setLoading] = useState(true);
 
@@ -40,15 +39,11 @@ function WorkPage({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       <WorkHeader data={workHeaderData} />
       <WorkBody data={data} categories={categories} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

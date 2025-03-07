@@ -15,7 +15,7 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
 
-function DammamPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
+function DammamPage({ MainNavLinks, MainFooterLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data: blogsHomePage, loading: blogsLoading } = useFetch(
@@ -44,12 +44,7 @@ function DammamPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
       <Section1 />
       <LocationContact />
       <GoogleReviews data={googleReviews} sortedData={googleReviewsSorted} />
@@ -67,7 +62,7 @@ function DammamPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
               presence today and attract customers with our top-notch web design
               solutions."
       />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

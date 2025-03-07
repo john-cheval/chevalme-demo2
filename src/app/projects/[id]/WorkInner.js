@@ -19,10 +19,8 @@ function WorkInnerPage({
   innerID,
   data2,
   data,
-  navLinks,
-  codeLinks,
-  craftLinks,
-  convertLinks,
+  MainNavLinks,
+  MainFooterLinks,
 }) {
   const [loading, setLoading] = useState(true);
 
@@ -41,16 +39,12 @@ function WorkInnerPage({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       <WorkInnerSection1 data={data} />
       <WorkInnerSection2 data={data2} ID={innerID?.id} link="/projects" />
       <Section10 data={clients} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

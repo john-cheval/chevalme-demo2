@@ -39,14 +39,7 @@ const ContactForm = dynamic(
   { ssr: false }
 );
 
-function ServicesInnerPage({
-  data,
-  services,
-  navLinks,
-  codeLinks,
-  craftLinks,
-  convertLinks,
-}) {
+function ServicesInnerPage({ data, services, MainNavLinks, MainFooterLinks }) {
   const [split, setSplit] = useState(null);
   const [gallery, setGallery] = useState(null);
   const [galleryLoading, setGalleryLoading] = useState(true);
@@ -84,12 +77,8 @@ function ServicesInnerPage({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       {data?.services_slider && (
         <ServiceInnerSwipper slides={data?.services_slider} />
       )}
@@ -124,7 +113,7 @@ function ServicesInnerPage({
 
       <ContactForm title="We are happy to help you" services={services} />
 
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

@@ -10,16 +10,10 @@ const PrivacyPolicyContent = dynamic(
   () => import("@/components/PrivacyPolicy/PrivacyPolicyContent")
 );
 
-const PrivacyPolicyPage = ({
-  navLinks,
-  codeLinks,
-  craftLinks,
-  convertLinks,
-  privacyData,
-}) => {
+const PrivacyPolicyPage = ({ MainNavLinks, MainFooterLinks }) => {
   const [loading, setLoading] = useState(false);
 
-  const { data: privacyDatas, loading: privacyLoading } = useFetch(
+  const { data: privacyData, loading: privacyLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=165"
   );
 
@@ -35,17 +29,13 @@ const PrivacyPolicyPage = ({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       <PrivacyPolicyContent
         content={privacyData?.post_content}
         title={privacyData?.post_title}
       />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 };

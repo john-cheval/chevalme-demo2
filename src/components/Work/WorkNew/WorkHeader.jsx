@@ -5,7 +5,7 @@ import WorkOverlay from "../../../../public/Work/overlay.png";
 
 const WorkHeader = ({ data }) => {
   return (
-    <div className="relative w-screen h-[367px] md:h-[427px]   overflow-hidden flex items-center work-header justify-center">
+    <div className="relative w-screen h-[367px] md:h-[422px]   overflow-hidden flex items-center work-header justify-center">
       <video
         playsInline
         autoPlay

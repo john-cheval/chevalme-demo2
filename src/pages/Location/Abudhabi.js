@@ -14,7 +14,7 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
 
-function AbuDhabiPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
+function AbuDhabiPage({ MainNavLinks, MainFooterLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data: blogsHomePage, loading: blogsLoading } = useFetch(
@@ -43,19 +43,14 @@ function AbuDhabiPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
       <Section1 />
       <LocationContact />
       <GoogleReviews data={googleReviews} sortedData={googleReviewsSorted} />
       <LocationServices service={servicesAbuDhabi} />
       <Section9 data={blogsHomePage} title={"Insights and Ideas"} />
       <LocationFaq data={faqAbuDhabi} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

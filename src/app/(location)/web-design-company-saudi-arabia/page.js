@@ -2,18 +2,8 @@
 
 import SaudiArabiaPage from "@/pages/Location/SaudiArabia";
 import generateMetadataData from "@/util/generateMetaTitle";
-import {
-  eCommerce,
-  mobileApps,
-  webDev,
-  websites,
-  branding,
-  customDesign,
-  uiUx,
-  digitalMarketing,
-  seo,
-  socialMedia,
-} from "@/data/NavbarLinks";
+
+import { fetchData } from "@/server/getHomePageData";
 
 export async function generateMetadata() {
   return await generateMetadataData(
@@ -22,25 +12,17 @@ export async function generateMetadata() {
     true
   );
 }
-function SaudiArabia() {
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
+export default async function SaudiArabia() {
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
+  );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
   return (
     <SaudiArabiaPage
-      navLinks={navLinks}
-      codeLinks={codeLinks}
-      craftLinks={craftLinks}
-      convertLinks={convertLinks}
+      MainFooterLinks={MainFooterLinks.menu_tree}
+      MainNavLinks={MainNavLinks}
     />
   );
 }
-
-export default SaudiArabia;

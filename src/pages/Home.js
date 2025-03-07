@@ -45,10 +45,9 @@ export default function HomePage({
   gallery,
   blogsHomePage,
   googleReviews,
-  navLinks,
-  codeLinks,
-  craftLinks,
-  convertLinks,
+
+  MainNavLinks,
+  MainFooterLinks,
 }) {
   const [split, setSplit] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -71,12 +70,7 @@ export default function HomePage({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
       {homeContent && homeContent.web_title && (
         <Section1
           title={homeContent.web_title}
@@ -100,7 +94,7 @@ export default function HomePage({
       <Section11 data={googleReviews} />
       <Section9 data={blogsHomePage} title={homeContent?.blog_heading} />
       <Section10 data={clients} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

@@ -3,18 +3,7 @@
 import WorkInnerPage from "@/app/projects/[id]/WorkInner";
 import { fetchData } from "@/server/getHomePageData";
 import generateMetadataData from "@/util/generateMetaTitle";
-import {
-  eCommerce,
-  mobileApps,
-  webDev,
-  websites,
-  branding,
-  customDesign,
-  uiUx,
-  digitalMarketing,
-  seo,
-  socialMedia,
-} from "@/data/NavbarLinks";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const id = (await params).id;
@@ -23,16 +12,12 @@ export async function generateMetadata({ params }) {
 
 export default async function WorkInner({ params }) {
   const parmasID = await params;
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
+  );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
 
   const data2 = await fetchData(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/projects"
@@ -42,15 +27,17 @@ export default async function WorkInner({ params }) {
     `https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/projects_details?slug=${parmasID?.id}`
   );
 
+  if (!data) {
+    notFound();
+  }
+
   return (
     <WorkInnerPage
       innerID={parmasID}
       data2={data2}
       data={data}
-      navLinks={navLinks}
-      codeLinks={codeLinks}
-      craftLinks={craftLinks}
-      convertLinks={convertLinks}
+      MainNavLinks={MainNavLinks}
+      MainFooterLinks={MainFooterLinks.menu_tree}
     />
   );
 }

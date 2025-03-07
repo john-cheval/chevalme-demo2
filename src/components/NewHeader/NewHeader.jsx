@@ -22,12 +22,7 @@ import Link from "next/link";
 import BigMenu from "./BigMenu";
 import whatsapp from "../../../public/whatsapp.png";
 
-const NewHeader = ({
-  navLinks = [],
-  codeLinks = [],
-  craftLinks = [],
-  convertLinks = [],
-}) => {
+const NewHeader = ({ navLinksNew }) => {
   const pathname = usePathname();
   const darkBG = ["/services/", "/projects/"];
   const [active, setActive] = useState(pathname);
@@ -199,8 +194,6 @@ const NewHeader = ({
     };
   }, []);
 
-  const additionalLinks = ["Craft", "Code", "Convert"];
-
   return (
     <>
       <header
@@ -232,29 +225,29 @@ const NewHeader = ({
                 id="navLinks"
                 className="hidden lg:flex items-center text-sm font-medium space-x-6 md:space-x-8 lg:space-x-10 uppercase"
               >
-                {navLinks?.map(({ name, path }) => (
-                  <div key={path}>
-                    <p
-                      id={path === "/services" ? "servicesLink" : ""}
-                      className={`${
-                        active?.startsWith(path) ||
-                        (path === "/services" && active.includes("/service"))
-                          ? "text-[#D81100] activeNavLink"
-                          : darkBG.includes(pathname)
-                            ? "text-white"
-                            : "text-black"
-                      }`}
-                    >
-                      <Link
-                        className="hover:text-[#D81100] transition-colors duration-300"
-                        href={path}
+                {navLinksNew &&
+                  navLinksNew["0"]?.map(({ title, url, id }) => (
+                    <div key={id}>
+                      <p
+                        id={url === "/services" ? "servicesLink" : ""}
+                        className={`${
+                          active?.startsWith(url) ||
+                          (url === "/services" && active.includes("/service"))
+                            ? "text-[#D81100] activeNavLink"
+                            : darkBG.includes(pathname)
+                              ? "text-white"
+                              : "text-black"
+                        }`}
                       >
-                        {name}
-                      </Link>
-                    </p>
-                  </div>
-                ))}
-
+                        <Link
+                          className="hover:text-[#D81100] transition-colors duration-300"
+                          href={url}
+                        >
+                          {title}
+                        </Link>
+                      </p>
+                    </div>
+                  ))}
                 {/* <div> */}
                 <Link
                   href={"tel:+971 50 356 0927"}
@@ -356,12 +349,7 @@ const NewHeader = ({
           ref={bigMenuRef}
           className={`opacity-0 h-0 hidden lg:block pointer-events-none `}
         >
-          <BigMenu
-            headerRef={headerRef}
-            codeLinks={codeLinks}
-            craftLinks={craftLinks}
-            convertLinks={convertLinks}
-          />
+          <BigMenu headerRef={headerRef} megaMenuLink={navLinksNew} />
         </div>
       </header>
       <div className="fixed bottom-4 right-3 xl:bottom-24 xl:right-6 z-[10000000]">
@@ -418,41 +406,42 @@ const NewHeader = ({
             id="mblMenuItems"
             className="flex flex-col font-sora font-semibold text-3xl text-[#101763] items-center justify-center w-screen h-fit space-y-4 px-5 sm:px-10 md:px-12"
           >
-            {navLinks?.map(({ name, path }, index) => {
-              return (
-                <div key={name}>
-                  <div className="flex justify-center w-full text-center pt-4 items-center cursor-pointer transition-colors duration-300 uppercase">
-                    <p>
-                      <Link
-                        href={path}
-                        className="text-[30px] uppercase"
-                        onClick={menuClose}
-                      >
-                        {name}
-                      </Link>
-                    </p>
-                  </div>
+            {navLinksNew["0"] &&
+              navLinksNew["0"]?.map(({ title, url, id }, index) => {
+                return (
+                  <div key={id}>
+                    <div className="flex justify-center w-full text-center pt-4 items-center cursor-pointer transition-colors duration-300 uppercase">
+                      <p>
+                        <Link
+                          href={url}
+                          className="text-[30px] uppercase"
+                          onClick={menuClose}
+                        >
+                          {title}
+                        </Link>
+                      </p>
+                    </div>
 
-                  {name === "Services" &&
-                    additionalLinks?.map((item) => (
-                      <div
-                        key={item}
-                        className="flex justify-center w-full text-center pt-3 items-center cursor-pointer transition-colors duration-300 uppercase"
-                      >
-                        <p>
-                          <Link
-                            onClick={menuClose}
-                            href={`/services?section=${item?.toLowerCase()}`}
-                            className="text-xl sm:text-[22px]"
-                          >
-                            {item}
-                          </Link>
-                        </p>
-                      </div>
-                    ))}
-                </div>
-              );
-            })}
+                    {title === "Services" &&
+                      navLinksNew["3803"]?.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex justify-center w-full text-center pt-3 items-center cursor-pointer transition-colors duration-300 uppercase"
+                        >
+                          <p>
+                            <Link
+                              onClick={menuClose}
+                              href={`/services?section=${item?.title?.toLowerCase()}`}
+                              className="text-xl sm:text-[22px]"
+                            >
+                              {item?.title}
+                            </Link>
+                          </p>
+                        </div>
+                      ))}
+                  </div>
+                );
+              })}
           </div>
 
           <div

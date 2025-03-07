@@ -1,17 +1,7 @@
 import DubaiPage from "@/pages/Location/Dubai";
 import generateMetadataData from "@/util/generateMetaTitle";
-import {
-  eCommerce,
-  mobileApps,
-  webDev,
-  websites,
-  branding,
-  customDesign,
-  uiUx,
-  digitalMarketing,
-  seo,
-  socialMedia,
-} from "@/data/NavbarLinks";
+
+import { fetchData } from "@/server/getHomePageData";
 
 export async function generateMetadata() {
   return await generateMetadataData(
@@ -20,25 +10,18 @@ export async function generateMetadata() {
     true
   );
 }
-function Dubai() {
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
+export default async function Dubai() {
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
+  );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
 
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
   return (
     <DubaiPage
-      navLinks={navLinks}
-      codeLinks={codeLinks}
-      craftLinks={craftLinks}
-      convertLinks={convertLinks}
+      MainNavLinks={MainNavLinks}
+      MainFooterLinks={MainFooterLinks.menu_tree}
     />
   );
 }
-
-export default Dubai;

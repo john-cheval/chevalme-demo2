@@ -28,16 +28,12 @@ export async function generateMetadata({ params }) {
 }
 const LocationSubPage = async ({ params }) => {
   const data = await fetchData((await params).id);
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
+  );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
 
   if (!data) {
     notFound();
@@ -47,10 +43,8 @@ const LocationSubPage = async ({ params }) => {
     <>
       <LocalInnerPage
         pageData={data?.page_template_name}
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
+        MainNavLinks={MainNavLinks}
+        MainFooterLinks={MainFooterLinks.menu_tree}
       />
     </>
   );

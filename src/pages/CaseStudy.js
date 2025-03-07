@@ -12,7 +12,11 @@ const CaseStudiesSection1 = dynamic(
 );
 const NewFooter = dynamic(() => import("@/components/Footer/NewFooter"));
 const NewHeader = dynamic(() => import("@/components/NewHeader/NewHeader"));
-function CaseStudies({ navLinks, codeLinks, craftLinks, convertLinks, datas }) {
+function CaseStudies({ MainNavLinks, MainFooterLinks }) {
+  const { data, loading: dataLoading } = useFetch(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/projects?type=case_study"
+  );
+
   const [loading, setLoading] = useState(true);
 
   const { data: clients, loading: clientLoading } = useFetch(
@@ -20,12 +24,12 @@ function CaseStudies({ navLinks, codeLinks, craftLinks, convertLinks, datas }) {
   );
 
   useEffect(() => {
-    if (!clientLoading) {
+    if (!dataLoading && !clientLoading) {
       setLoading(false);
     } else {
       setLoading(true);
     }
-  }, [clientLoading]);
+  }, [dataLoading, clientLoading]);
 
   return loading ? (
     <>
@@ -33,15 +37,11 @@ function CaseStudies({ navLinks, codeLinks, craftLinks, convertLinks, datas }) {
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
-      <CaseStudiesSection1 data={datas} />
+      <NewHeader navLinksNew={MainNavLinks} />
+
+      <CaseStudiesSection1 data={data} />
       <Section10 data={clients} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

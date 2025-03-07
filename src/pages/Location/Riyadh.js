@@ -15,7 +15,7 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
 
-function RiyadhPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
+function RiyadhPage({ MainNavLinks, MainFooterLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data: blogsHomePage, loading: blogsLoading } = useFetch(
@@ -44,12 +44,8 @@ function RiyadhPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       <Section1 />
       <LocationContact />
       <GoogleReviews data={googleReviews} sortedData={googleReviewsSorted} />
@@ -67,7 +63,7 @@ function RiyadhPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
               memorable impact with our innovative designs. Elevate your online
               presence now!"
       />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

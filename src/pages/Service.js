@@ -14,13 +14,7 @@ import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-function ServicePage({
-  serviceHeader,
-  navLinks,
-  codeLinks,
-  craftLinks,
-  convertLinks,
-}) {
+function ServicePage({ serviceHeader, MainNavLinks, MainFooterLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data, loading: dataLoading } = useFetch(
@@ -41,15 +35,11 @@ function ServicePage({
     </>
   ) : (
     <>
-      <NewHeader
-        navLinks={navLinks}
-        codeLinks={codeLinks}
-        craftLinks={craftLinks}
-        convertLinks={convertLinks}
-      />
+      <NewHeader navLinksNew={MainNavLinks} />
+
       <ServiceHeader data={serviceHeader} />
       <ServiceListNew data={data} />
-      <NewFooter />
+      <NewFooter footer={MainFooterLinks} />
     </>
   );
 }

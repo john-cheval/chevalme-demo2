@@ -48,7 +48,7 @@ const ContactHeader = () => {
   }, []);
 
   return (
-    <div className="relative w-screen pt-28 sm:pt-36 md:pt-40 lg:pt-44 xl:pt-[17rem]  overflow-hidden mt-7-- contact-header">
+    <div className="relative w-screen pt-28 sm:pt-36 md:pt-40  lg:pt-[12rem]  overflow-hidden mt-7-- contact-header">
       <Image
         src={contactHeader}
         alt="Contact Header"

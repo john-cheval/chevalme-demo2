@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import fb from "../../../public/Footer/social/fb.svg";
 import insta from "../../../public/Footer/social/instagram.svg";
 import linkedin from "../../../public/Footer/social/linkedin.svg";
 import arrowForward from "../../../public/Footer/arrow_forward.svg";
 import footerLine from "../../../public/Footer/footer_line.svg";
 import FooterMobile from "./FooterMobile";
-import { location, ourServices } from "@/data/FooterLinks";
 
-const NewFooter = () => {
+const NewFooter = ({ footer }) => {
+  console.log(footer, "this is the footer");
   return (
     <footer className="relative z-[1000] w-screen h-fit  text-white overflow-hidden bg-black md:bg-footer-bg footer-bg_image  bg-conver bg-no-repeat   ">
       {/* Overlay Ellips */}
@@ -49,62 +49,39 @@ const NewFooter = () => {
                 </Link>
               </div>
               <div className=" hidden md:flex  flex-col sm:flex-row items-center justify-start  gap-[20px] md:gap-[50px] 2xl:gap-[69px]  w-full py-10 sm:py-14 md:pt-14 pb-10 z-50 footer_main ">
-                <div className="flex flex-col  space-y-4  items-center justify-center md:items-start md:justify-start">
-                  <div>
-                    <h6 className="font-satoshi  text-xl sm:text-sm md:text-base font-medium  text-white mb-2 flex items-center justify-center ">
-                      We Serve In
-                    </h6>
-                    <Image
-                      src={footerLine}
-                      alt="line"
-                      height={0}
-                      width={0}
-                      sizes="100vw"
-                      className="w-11 h-auto"
-                    />
+                {footer?.map((data) => (
+                  <div
+                    className="flex flex-col  space-y-4  items-center justify-center md:items-start md:justify-start"
+                    key={data?.id}
+                  >
+                    <div>
+                      <h6 className="font-satoshi  text-xl sm:text-sm md:text-base font-medium  text-white mb-2 flex items-center justify-center ">
+                        {data?.title}
+                      </h6>
+                      <Image
+                        src={footerLine}
+                        alt="line"
+                        height={0}
+                        width={0}
+                        sizes="100vw"
+                        className="w-11 h-auto"
+                      />
+                    </div>
+                    <div className="flex flex-col  space-y-0">
+                      {data?.children?.map((item, index) => (
+                        <Link
+                          className="cursor-pointer"
+                          href={item?.url}
+                          key={index}
+                        >
+                          <p className="font-satoshi font-normal  border-b border-b-transparent hover:border-b-transparent hover:text-[#d81100] duration-300 transition-all text-lg md:text-base text-white leading-[2.3] sm:leading-[2.2] md:leading-[2.3]">
+                            {item?.title}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-col  space-y-0">
-                    {location?.map((location, index) => (
-                      <Link
-                        className="cursor-pointer"
-                        href={location?.href}
-                        key={index}
-                      >
-                        <p className="font-satoshi font-normal  border-b border-b-transparent hover:border-b-transparent hover:text-[#d81100] duration-300 transition-all text-lg md:text-base text-white leading-[2.3] sm:leading-[2.2] md:leading-[2.3]">
-                          {location?.text}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-col space-y-4 items-center justify-center md:items-start md:justify-start">
-                  <div>
-                    <h6 className="font-satoshi   text-xl md:text-base font-medium  text-white mb-2 flex items-center justify-center ">
-                      Services
-                    </h6>
-                    <Image
-                      src={footerLine}
-                      alt="line"
-                      height={0}
-                      width={0}
-                      sizes="100vw"
-                      className="w-11 h-auto"
-                    />
-                  </div>
-                  <div className="flex flex-col space-y-0">
-                    {ourServices?.map((service, index) => (
-                      <Link
-                        key={index}
-                        className="cursor-pointer"
-                        href={service?.href}
-                      >
-                        <p className="font-satoshi font-normal  border-b border-b-transparent hover:border-b-transparent hover:text-[#d81100] duration-300 transition-all text-lg md:text-base text-white leading-[2.3] sm:leading-[2.2] md:leading-[2.3]">
-                          {service?.text}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                ))}
                 <div className="flex flex-col space-y-4 items-center justify-center md:items-start md:justify-start ">
                   <div>
                     <h6 className="font-satoshi  text-xl md:text-base font-medium  text-white mb-2 flex  ">
@@ -232,7 +209,7 @@ const NewFooter = () => {
 
           {/* moblie */}
           <div className="md:hidden w-full mt-9">
-            <FooterMobile />
+            <FooterMobile links={footer} />
             <div className="md:hidden  flex flex-row space-x-4 mt-7 items-center justify-center ">
               <Link
                 target="_blank"

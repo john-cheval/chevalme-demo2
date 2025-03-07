@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const ContactMiddleSection = () => {
   return (
-    <div className="px-5 sm:px-10 md:px-12 mt-10 md:mt-[75px] lg:mt-[86px]  ">
+    <div className="px-5 sm:px-10 md:px-12 mt-10 md:mt-[75px] lg:mt-[65px]  ">
       <div className="flex md:items-center justify-center flex-col">
         <h2
           className="text-[#101763] md:text-center font-sora text-3xl md:text-4xl lg:text-[40px] font-normal leading-[140%] w-[80%] lg:w-[551px] mb-4 md:mb-7 "

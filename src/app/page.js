@@ -2,34 +2,18 @@
 import generateMetadataData from "@/util/generateMetaTitle";
 import HomePage from "../pages/Home";
 import { fetchData } from "@/server/getHomePageData";
-import {
-  eCommerce,
-  mobileApps,
-  webDev,
-  websites,
-  branding,
-  customDesign,
-  uiUx,
-  digitalMarketing,
-  seo,
-  socialMedia,
-} from "@/data/NavbarLinks";
 
 export async function generateMetadata() {
   return await generateMetadataData(8, "", false);
 }
 
 export default async function Home() {
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
-  const codeLinks = { eCommerce, mobileApps, webDev, websites };
-  const craftLinks = { branding, customDesign, uiUx };
-  const convertLinks = { seo, socialMedia, digitalMarketing };
+  const MainNavLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/quicklinks"
+  );
+  const MainFooterLinks = await fetchData(
+    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/menu/footer"
+  );
 
   const homeContent = await fetchData(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/homepage_details?ID=8"
@@ -61,10 +45,8 @@ export default async function Home() {
       gallery={gallery}
       blogsHomePage={blogsHomePage}
       googleReviews={googleReviews}
-      navLinks={navLinks}
-      codeLinks={codeLinks}
-      craftLinks={craftLinks}
-      convertLinks={convertLinks}
+      MainNavLinks={MainNavLinks}
+      MainFooterLinks={MainFooterLinks.menu_tree}
     />
   );
 }
