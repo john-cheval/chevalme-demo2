@@ -49,7 +49,7 @@ function BlogsInnerSection2({ data, blogID }) {
 
             {data
               ?.filter((blog) => blog?.slug !== blogID)
-              .map((data, index) => (
+              ?.map((data, index) => (
                 <SwiperSlide
                   key={index}
                   onClick={() => router.push(`/blogs/${data.slug}`)}

@@ -41,7 +41,7 @@ const BrandHeaderNew = ({ data }) => {
                   Expertise
                 </p>
                 <div className="h-fit  w-fit max-w-[750px] justify-center sm:justify-start  flex  flex-row flex-wrap items-center gap-2 ">
-                  {data?.projects_category.map((category, index) => (
+                  {data?.projects_category?.map((category, index) => (
                     <button
                       key={index}
                       className="font-sora text-[14px]  transition-colors   py-2 px-4 w-fit cursor-default    text-[#101763] rounded-3xl border border-[#101764] hover:border-[#d81100] hover:text-[#d81100] duration-300"

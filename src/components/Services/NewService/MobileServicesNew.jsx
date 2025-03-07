@@ -88,7 +88,7 @@ const MobileServicesNew = () => {
         }}
       >
         <div className="flex justify-between">
-          {["craft", "code", "convert"].map((section) => (
+          {["craft", "code", "convert"]?.map((section) => (
             <Link
               key={section}
               href={`/services?section=${section}`}
@@ -150,7 +150,7 @@ const MobileServicesNew = () => {
             data: convert,
             banner: convertBanner,
           },
-        ].map(({ id, ref, data, banner }) => (
+        ]?.map(({ id, ref, data, banner }) => (
           <div key={id} id={id} ref={ref}>
             <div className="w-full h-auto border border-b-red-500/0.7 pb-8 border-r-0 border-l-0 border-t-0">
               <Image

@@ -42,13 +42,13 @@ const AboutBanner = ({ bannerData, bannerPopupVideo }) => {
 
     if (showFlicker) {
       flickerInterval = setInterval(() => {
-        setFinalImages(aboutBannerImages.map(() => randomImageSrc()));
+        setFinalImages(aboutBannerImages?.map(() => randomImageSrc()));
       }, 100);
     }
 
     const flickerTimeout = setTimeout(() => {
       setShowFlicker(false);
-      setFinalImages(aboutBannerImages.map((img) => img.src));
+      setFinalImages(aboutBannerImages?.map((img) => img.src));
       clearInterval(flickerInterval);
     }, 2000);
 

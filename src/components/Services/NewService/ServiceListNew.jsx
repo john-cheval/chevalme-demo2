@@ -88,7 +88,7 @@ const ServiceListNew = () => {
     if (router.get("section")) {
       const sectionIndex = ["Craft", "Code", "Convert"].indexOf(
         router.get("section").charAt(0).toUpperCase() +
-        router.get("section").slice(1)
+          router.get("section").slice(1)
       );
 
       if (sectionIndex !== -1 && sectionsRef.current[sectionIndex]) {
@@ -109,7 +109,7 @@ const ServiceListNew = () => {
             { title: "Craft", data: craft, banner: craftBanner },
             { title: "Code", data: code, banner: codeBanner },
             { title: "Convert", data: convert, banner: convertBanner },
-          ].map((section, index) => (
+          ]?.map((section, index) => (
             <div
               key={index}
               id={section.title.toLowerCase()}
@@ -166,7 +166,7 @@ const ServiceListNew = () => {
                               </h3>
 
                               <div className="text-xs xl:text-base font-satoshi font-normal flex flex-wrap gap-x-1 max-w-[300px] lg:max-w-[450px] xl:max-w-[600px]">
-                                {data?.service.map((servic, idy) => (
+                                {data?.service?.map((servic, idy) => (
                                   <span
                                     key={idy}
                                     className="text-[#101763] leading-[182%]"

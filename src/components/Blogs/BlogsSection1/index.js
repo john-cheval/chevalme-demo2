@@ -13,8 +13,8 @@ function BlogsSection1({ data }) {
       <div className="relative flex-col space-y-10 flex h-fit w-full px-5 sm:px-10 md:px-12 text-[#101763]">
         <div className="w-full lg:h-[520px] gap-3 lg:gap-4 xl:gap-5 grid grid-rows-12 grid-cols-1 lg:grid-cols-2 ">
           {data &&
-            data.length > 0 &&
-            data.map(
+            data?.length > 0 &&
+            data?.map(
               (data, index) =>
                 index === 0 && (
                   <div

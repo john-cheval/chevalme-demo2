@@ -25,7 +25,7 @@ const MobileNav = ({ navLinks }) => {
       id="mblMenuItems"
       className="flex flex-col font-sora font-semibold text-3xl uppercase text-[#101763] items-center justify-center w-screen h-fit space-y-6"
     >
-      {navLinks.map(({ name, path }) => (
+      {navLinks?.map(({ name, path }) => (
         <div key={path} className="w-full text-center">
           {name === "Services" ? (
             <div
@@ -66,7 +66,7 @@ const MobileNav = ({ navLinks }) => {
                 { name: "Mobile App", path: "/service/mobile-app" },
                 { name: "Web App", path: "/service/web-app" },
                 { name: "UI/UX", path: "/service/ui-ux" },
-              ].map((item) => (
+              ]?.map((item) => (
                 <div key={item.name}>
                   <div
                     onClick={() => toggleSubmenu(item.name)}
