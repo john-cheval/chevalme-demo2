@@ -256,7 +256,7 @@ function Section1({ title, link, fullVideo, shortVideo, subTitle, linkText }) {
                 }}
               >
                 <h3
-                  className="font-sora  text-2xl  sm:text-3xl md:text-4xl font-bold leading-[190%]-- md:mb-3 lg:text-5xl xl:text-[54px] bg-gradient-to-r from-[#101763] to-[#D81100] bg-clip-text text-transparent relative"
+                  className="font-sora  text-2xl  sm:text-3xl md:text-4xl font-bold leading-[190%]-- md:mb-3 lg:text-5xl xl:text-[54px] bg-gradient-to-r from-[#101763] to-[#D81100] bg-clip-text text-transparent relative heading2"
                   style={{
                     display: "block !important",
                     justifyContent: "center",

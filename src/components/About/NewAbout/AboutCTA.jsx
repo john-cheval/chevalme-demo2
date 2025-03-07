@@ -29,7 +29,7 @@ const AboutCTA = ({ ctaHeading, description, VideoUrl }) => {
               dangerouslySetInnerHTML={{
                 __html: description,
               }}
-              className="font-satoshi text-sm sm:text-base leading-[154%] max-w-[85%] md:max-w-[612px]"
+              className="font-satoshi para text-sm sm:text-base leading-[154%] max-w-[85%] md:max-w-[612px]"
             ></p>
 
             <DarkButton

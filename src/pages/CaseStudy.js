@@ -12,24 +12,20 @@ const CaseStudiesSection1 = dynamic(
 );
 const NewFooter = dynamic(() => import("@/components/Footer/NewFooter"));
 const NewHeader = dynamic(() => import("@/components/NewHeader/NewHeader"));
-function CaseStudies() {
+function CaseStudies({ navLinks, codeLinks, craftLinks, convertLinks, datas }) {
   const [loading, setLoading] = useState(true);
-
-  const { data, loading: dataLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/projects?type=case_study"
-  );
 
   const { data: clients, loading: clientLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/all_clients"
   );
 
   useEffect(() => {
-    if (!dataLoading && !clientLoading) {
+    if (!clientLoading) {
       setLoading(false);
     } else {
       setLoading(true);
     }
-  }, [dataLoading, clientLoading]);
+  }, [clientLoading]);
 
   return loading ? (
     <>
@@ -37,8 +33,13 @@ function CaseStudies() {
     </>
   ) : (
     <>
-      <NewHeader />
-      <CaseStudiesSection1 data={data} />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
+      <CaseStudiesSection1 data={datas} />
       <Section10 data={clients} />
       <NewFooter />
     </>

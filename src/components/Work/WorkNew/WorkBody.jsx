@@ -117,7 +117,7 @@ const WorkBody = ({ data, categories }) => {
                 width={60}
                 height={60}
                 sizes="100vw"
-                className="h-[60px] w-[60px] rounded-full object-cover"
+                className="h-full w-full rounded-full object-cover"
               />
             </div>
             <p
@@ -190,7 +190,7 @@ const WorkBody = ({ data, categories }) => {
               className="h-full w-full rounded-full object-cover"
               priority
             />
-            <div className="absolute top-[22px] -translate-y-1/2 left-[50px] w-max px-4 h-[42px] flex items-center justify-center text-center text-white font-satoshi text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-[9999]">
+            <div className="absolute top-[22px] -translate-y-1/2 left-[50px] w-max px-4 h-[42px] flex items-center justify-center text-center text-white font-satoshi text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-[9999] invisible group-hover:visible">
               <div className="blob font-satoshi text-base"> Explore All</div>
             </div>
           </div>
@@ -216,7 +216,7 @@ const WorkBody = ({ data, categories }) => {
                 className="h-full w-full rounded-full object-cover"
               />
               {/* Tooltip */}
-              <div className="absolute top-[22px] -translate-y-1/2 left-[50px] w-max px-4 h-[42px] flex items-center justify-center text-center text-white font-satoshi text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-[9999]">
+              <div className="absolute top-[22px] -translate-y-1/2 left-[50px] w-max px-4 h-[42px] flex items-center justify-center text-center text-white font-satoshi text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-[9999]  invisible group-hover:visible">
                 <div className="blob font-satoshi text-base"> {work.name}</div>
               </div>
             </div>

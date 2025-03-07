@@ -1,15 +1,15 @@
-import { digitalMarketing, seo, socialMedia } from "@/data/NavbarLinks";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ConvertImage from "../../../public/Header/convert.png";
 
-const ConvertCenter = () => {
+const ConvertCenter = ({ convertLinks }) => {
+  const { digitalMarketing, seo, socialMedia } = convertLinks;
   return (
     <>
       <div
         id="rightSideConvert"
-        className="col-span-7 px-9 p-10 flex space-x-24"
+        className="col-span-7 bigMenuCol px-9 p-10 flex bigMain-gap gap-x-24"
       >
         <div className="space-y-2">
           <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
@@ -17,7 +17,7 @@ const ConvertCenter = () => {
               Search Engine Optimisation
             </Link>
           </h2>
-          <ul className="space-y-3">
+          <ul className="space-y-3 linksGap">
             {seo?.map((data, index) => (
               <li
                 className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
@@ -35,7 +35,7 @@ const ConvertCenter = () => {
               Social Media Management
             </Link>
           </h2>
-          <ul className="space-y-3">
+          <ul className="space-y-3 linksGap">
             {socialMedia?.map((data, index) => (
               <li
                 className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
@@ -54,7 +54,7 @@ const ConvertCenter = () => {
           <h2 className="font-sora font-base font-semibold leading-[190%]-- heading-gradient">
             <Link href="/service/digital-marketing">Digital Marketing</Link>
           </h2>
-          <ul className="space-y-3">
+          <ul className="space-y-3 linksGap">
             {digitalMarketing?.map((data, index) => (
               <li
                 className="font-satoshi text-[#101763] text-sm font-normal leading-[182%]-- hover:text-[#d81100] transition-all duration-300 "
@@ -70,7 +70,7 @@ const ConvertCenter = () => {
         </div>
       </div>
 
-      <div className="relative col-span-3 w-full h-auto">
+      <div className="relative col-span-3 w-full h-auto big_image">
         <Image
           src={ConvertImage}
           alt="codeImage"

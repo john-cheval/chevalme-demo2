@@ -22,7 +22,12 @@ import Link from "next/link";
 import BigMenu from "./BigMenu";
 import whatsapp from "../../../public/whatsapp.png";
 
-const NewHeader = () => {
+const NewHeader = ({
+  navLinks = [],
+  codeLinks = [],
+  craftLinks = [],
+  convertLinks = [],
+}) => {
   const pathname = usePathname();
   const darkBG = ["/services/", "/projects/"];
   const [active, setActive] = useState(pathname);
@@ -194,13 +199,6 @@ const NewHeader = () => {
     };
   }, []);
 
-  const navLinks = [
-    { name: "About", path: "/about" },
-    { name: "Work", path: "/projects" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact-us" },
-  ];
-
   const additionalLinks = ["Craft", "Code", "Convert"];
 
   return (
@@ -358,7 +356,12 @@ const NewHeader = () => {
           ref={bigMenuRef}
           className={`opacity-0 h-0 hidden lg:block pointer-events-none `}
         >
-          <BigMenu headerRef={headerRef} />
+          <BigMenu
+            headerRef={headerRef}
+            codeLinks={codeLinks}
+            craftLinks={craftLinks}
+            convertLinks={convertLinks}
+          />
         </div>
       </header>
       <div className="fixed bottom-4 right-3 xl:bottom-24 xl:right-6 z-[10000000]">

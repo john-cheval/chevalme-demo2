@@ -15,10 +15,21 @@ const DummyComp = dynamic(
   }
 );
 
-const LocalInnerPage = ({ pageData }) => {
+const LocalInnerPage = ({
+  pageData,
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+}) => {
   return (
     <>
-      <NewHeader />
+      <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      />
 
       <DummyComp page={pageData} />
       <NewFooter />

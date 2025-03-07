@@ -6,7 +6,7 @@ import CraftCenter from "./CraftCenter";
 import ConvertCenter from "./ConvertCenter";
 import Link from "next/link";
 
-const BigMenu = ({ headerRef }) => {
+const BigMenu = ({ headerRef, codeLinks,craftLinks,convertLinks }) => {
   const [topOffset, setTopOffset] = useState(0);
   const [activeSection, setActiveSection] = useState("code");
   const [isVisible, setIsVisible] = useState(true);
@@ -102,9 +102,9 @@ const BigMenu = ({ headerRef }) => {
             </div>
           </div>
 
-          {activeSection === "code" && <CodeCenter />}
-          {activeSection === "craft" && <CraftCenter />}
-          {activeSection === "convert" && <ConvertCenter />}
+          {activeSection === "code" && <CodeCenter codeLinks={codeLinks} />}
+          {activeSection === "craft" && <CraftCenter craftLinks={craftLinks} />}
+          {activeSection === "convert" && <ConvertCenter convertLinks={convertLinks} />}
         </div>
       </div>
     </div>

@@ -85,7 +85,7 @@ function Section4({ cardData }) {
                   />
                 </div>
                 <div className="flex z-20 flex-col  items-center text-center md:items-start justify-center w-full py-16 px-0 sm:px-16 lg:px-20  lg:py-16">
-                  <h1 className="font-sora md:text-left text-center font-semibold text-[40px] sm:text-[60px]  md:text-[7vw] lg:text-[74px] tracking-[-1.6px] capitalize text-white ">
+                  <h1 className="font-sora md:text-left text-center font-semibold text-[40px] sm:text-[60px]  md:text-[7vw] lg:text-[74px] tracking-[-1.6px] capitalize text-white heading2 ">
                     {cardData[0]?.title}
                   </h1>
                   <p className="text-white text-center leading-[139%]  md:text-start text-[25px] w-[80%] sm:text-[30px] lg:text-[40px]   mb-4  lg:max-w-[650px]">
@@ -147,7 +147,7 @@ function Section4({ cardData }) {
                   />
                 </div>
                 <div className="flex z-20 flex-col items-center md:items-start justify-center w-full py-16 px-0 sm:px-16 lg:px-20  lg:py-16">
-                  <h1 className="font-sora md:text-left text-center font-semibold text-[40px] sm:text-[60px]  md:text-[7vw] lg:text-[74px] tracking-[-1.6px] capitalize text-white">
+                  <h1 className="font-sora md:text-left text-center font-semibold text-[40px] sm:text-[60px]  md:text-[7vw] lg:text-[74px] tracking-[-1.6px] capitalize text-white heading2">
                     {cardData[1]?.title}
                   </h1>
                   <p className="text-white text-center leading-[139%]  md:text-start text-[25px] w-[80%] sm:text-[30px] lg:text-[40px]   mb-4  lg:max-w-[650px]">
@@ -209,7 +209,7 @@ function Section4({ cardData }) {
                   />
                 </div>
                 <div className="flex z-20 flex-col items-center md:items-start justify-center w-full py-16 px-0 sm:px-16 lg:px-20  lg:py-16">
-                  <h1 className="font-sora md:text-left text-center font-semibold text-[40px] sm:text-[60px]  md:text-[7vw] lg:text-[74px] tracking-[-1.6px] capitalize text-white ">
+                  <h1 className="font-sora md:text-left text-center font-semibold text-[40px] sm:text-[60px]  md:text-[7vw] lg:text-[74px] tracking-[-1.6px] capitalize text-white heading2 ">
                     {cardData[2]?.title}
                   </h1>
                   <p className="text-white text-center leading-[139%]  md:text-start text-[25px] w-[80%] sm:text-[30px] lg:text-[40px]   mb-4  lg:max-w-[650px]">

@@ -14,24 +14,26 @@ import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-function ServicePage() {
+function ServicePage({
+  serviceHeader,
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+}) {
   const [loading, setLoading] = useState(true);
 
   const { data, loading: dataLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/services"
   );
 
-  const { data: serviceHeader, loading: serviceLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=98"
-  );
-
   useEffect(() => {
-    if (!dataLoading && !serviceLoading) {
+    if (!dataLoading) {
       setLoading(false);
     } else {
       setLoading(true);
     }
-  }, [dataLoading, , serviceLoading]);
+  }, [dataLoading]);
 
   return loading ? (
     <>
@@ -39,7 +41,12 @@ function ServicePage() {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       <ServiceHeader data={serviceHeader} />
       <ServiceListNew data={data} />
       <NewFooter />

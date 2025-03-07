@@ -25,50 +25,33 @@ const Section11 = dynamic(() => import("@/components/Home/Section11"), {
   ssr: false,
 });
 
+const NewFooter = dynamic(() => import("@/components/Footer/NewFooter"), {
+  ssr: false,
+});
+const NewHeader = dynamic(() => import("@/components/NewHeader/NewHeader"), {
+  ssr: false,
+});
 import Section1 from "@/components/Home/Section1";
-import NewHeader from "@/components/NewHeader/NewHeader";
-import NewFooter from "@/components/Footer/NewFooter";
+
 import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-export default function HomePage(/* homeContent */) {
+export default function HomePage({
+  homeContent,
+  worksHomePage,
+  services,
+  gallery,
+  blogsHomePage,
+  googleReviews,
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+}) {
   const [split, setSplit] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const { data: homeContent, loading: dataLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/homepage_details?ID=8"
-  );
-
-  // Google Reviews Section
-  const {
-    data: googleReviews,
-    loading: reviewsLoading,
-    googleReviewsSorted,
-  } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/google_reviews"
-  );
-
-  //  Works Section
-  const { data: worksHomePage, loading: worksLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/homeprojects"
-  );
-
-  //  Services Section
-  const { data: services, loading: servicesLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/services"
-  );
-
-  //  Gallery Section
-  const { data: gallery, loading: galleryLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=8"
-  );
-
-  //  Blogs Section
-  const { data: blogsHomePage, loading: blogsLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/wp/v2/posts?_embed"
-  );
 
   //  Client Section
   const { data: clients, loading: clientLoading } = useFetch(
@@ -76,31 +59,11 @@ export default function HomePage(/* homeContent */) {
   );
 
   useEffect(() => {
-    if (
-      !reviewsLoading &&
-      !worksLoading &&
-      // !caseStudiesLoading &&
-      !galleryLoading &&
-      !servicesLoading &&
-      !clientLoading &&
-      // !footerLoading &&
-      !blogsLoading /* &&
-      !dataLoading */
-    ) {
+    if (!clientLoading) {
       setSplit(gallery?.show_off_gallery.length / 2);
       setLoading(false);
     }
-  }, [
-    reviewsLoading,
-    worksLoading,
-    // caseStudiesLoading,
-    servicesLoading,
-    galleryLoading,
-    clientLoading,
-    blogsLoading,
-    // footerLoading,
-    // dataLoading,
-  ]);
+  }, [clientLoading]);
 
   return loading ? (
     <>
@@ -108,7 +71,12 @@ export default function HomePage(/* homeContent */) {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       {homeContent && homeContent.web_title && (
         <Section1
           title={homeContent.web_title}
@@ -129,7 +97,7 @@ export default function HomePage(/* homeContent */) {
       <Section5 data={worksHomePage} />
       <NewService data={services} title={homeContent?.services_heading} />
       <Section8 data={gallery} split={split} />
-      <Section11 data={googleReviews} sortedData={googleReviewsSorted} />
+      <Section11 data={googleReviews} />
       <Section9 data={blogsHomePage} title={homeContent?.blog_heading} />
       <Section10 data={clients} />
       <NewFooter />

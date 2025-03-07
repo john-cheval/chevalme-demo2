@@ -33,7 +33,7 @@ function Section2({ title, description, countdown }) {
     let mainSection = document.getElementById("mainSection2");
 
     let isMobile = window.matchMedia("(max-width: 640px)").matches;
-    let yValue = isMobile ? 0 : 250;
+    let yValue = isMobile ? 100 : 250;
 
     let section2Animation = gsap.timeline({
       defaults: {
@@ -73,11 +73,10 @@ function Section2({ title, description, countdown }) {
           className="max-w-screen  flex flex-col  h-[100dvh]-- relative overflow-hidden-  w-full"
         >
           <div className="max-w-screen px-5  sm:px-10 md:px-12  h-fit-- sm:h-[70vh]-- xl:h-[75vh] justify-center items-center mx-auto flex flex-row overflow-y-visible overflow-x-visible w-full">
-            <div className="flex h-fit--  justify-between space-x-2   w-full flex-col md:flex-row"
-            >
+            <div className="flex h-fit--  justify-between md:space-x-2   w-full flex-col md:flex-row">
               <div className="flex  flex-col h-fit  space-y-2 sm:space-y-4-- md:space-y-3-- w-full items-center  sm:max-w-fit--   justify-center sm:items-start sm:justify-start md:w-1/2  ">
                 <h2
-                  className="font-sora md:tracking-tighter  text-center md:text-left font-medium text-3xl  sm:text-4xl lg:text-5xl xl:text-[54px] text-[#101763] sm:mt-[50px]"
+                  className="font-sora md:tracking-tighter  text-center md:text-left font-medium text-3xl  sm:text-4xl lg:text-5xl xl:text-[54px] text-[#101763] sm:mt-[50px] heading2"
                   style={{
                     lineHeight: "120%",
                     letterSpacing: "-2.4px",
@@ -93,7 +92,7 @@ function Section2({ title, description, countdown }) {
                 ></p>
               </div>
               <div
-                className="flex flex-col  md:w-1/2 mt-4 md:mt-5 overflow-visible lg:mt-10 items-center sm:items-end sm:h-[360px] h-[200px]  xl:h-80 md:pl-[4%]   md:space-y-6 p-[20px] md:mb-20px"
+                className="flex flex-col  md:w-1/2 mt-4 md:mt-5 overflow-visible lg:mt-10 items-center sm:items-end sm:h-[360px] h-[250px]   xl:h-80 md:pl-[4%]   md:space-y-6 p-[20px]-- md:mb-20px"
                 id="pinnedSectionItems"
               >
                 {countdown?.map((item, index) => (
@@ -104,7 +103,7 @@ function Section2({ title, description, countdown }) {
                     px-6  sm:px-10 lg:px-10 xl:px-12 
                     w-[100%] sm:w-[85%] md:w-[80%] lg:w-[400px] xl:w-[475px]
                     ${index === 0 ? "sm:mr-[8%] md:mr-[10%]" : index === 1 ? "sm:mr-[4%] md:mr-[5%]" : "sm:mr-0 "} ${index === 0 ? "text-[#101763]" : "text-white"}
-                    py-6 sm:py-14 lg:flex-row flex-row sm:flex-col  space-x-4 sm:space-x-0 lg:space-x-6 ${index === 0 ? "mt-0" : "mt-5 md:mt-0 g:space-y-0 space-y-0 sm:space-y-2"} h-[230px]-- sm:h-[260px]-- lg:h-[225px] xl:h-[200px]`}
+                    py-6 sm:py-14 lg:flex-row flex-row sm:flex-col  space-x-4 sm:space-x-0 lg:space-x-6 ${index === 0 ? "mt-0" : "sm:mt-5 md:mt-0 g:space-y-0 space-y-0 sm:space-y-2"} h-[230px]-- sm:h-[260px]-- lg:h-[225px] xl:h-[200px] `}
                   >
                     <h4 className="text-xl sm:text-2xl md:text-[36px] lg:text-[45px] font-sora tracking-tight font-semibold ">
                       {item?.total_count}+
@@ -113,7 +112,7 @@ function Section2({ title, description, countdown }) {
                       <h4 className=" font-semibold text-[15px] sm:text-3xl lg:text-[34px] ">
                         {item?.title}
                       </h4>
-                      <p className="font-normal text-xs sm:text-sm   lg:text-base ">
+                      <p className="font-normal text-xs sm:text-sm   lg:text-base para ">
                         {item?.description}
                       </p>
                     </div>
@@ -123,8 +122,8 @@ function Section2({ title, description, countdown }) {
             </div>
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
 

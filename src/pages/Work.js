@@ -11,28 +11,28 @@ import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 
-function WorkPage() {
+function WorkPage({
+  workHeaderData,
+  data,
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+}) {
   const [loading, setLoading] = useState(true);
-  const { data: workHeaderData, loading: workHeaderLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=96"
-  );
 
   // Fetch Categories
   const { data: categories, loading: categoriesLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/category_list?show_in_filter=1"
   );
 
-  const { data, loading: dataLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/projects"
-  );
-
   useEffect(() => {
-    if (!dataLoading && !categoriesLoading && !workHeaderLoading) {
+    if (!categoriesLoading) {
       setLoading(false);
     } else {
       setLoading(true);
     }
-  }, [dataLoading, categoriesLoading, workHeaderLoading]);
+  }, [categoriesLoading]);
 
   return loading ? (
     <>
@@ -40,7 +40,12 @@ function WorkPage() {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       <WorkHeader data={workHeaderData} />
       <WorkBody data={data} categories={categories} />
       <NewFooter />

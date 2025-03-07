@@ -11,30 +11,27 @@ import FooterMobile from "./FooterMobile";
 import { location, ourServices } from "@/data/FooterLinks";
 
 const NewFooter = () => {
-  useEffect(() => {
-    console.log(window.innerWidth, "innerWidth");
-  }, []);
   return (
-    <footer className="relative z-[1000] w-screen h-fit  text-white overflow-hidden bg-black md:bg-footer-bg  bg-conver bg-no-repeat   ">
+    <footer className="relative z-[1000] w-screen h-fit  text-white overflow-hidden bg-black md:bg-footer-bg footer-bg_image  bg-conver bg-no-repeat   ">
       {/* Overlay Ellips */}
       <div className="w-full  pb-5 pt-10 md:pt-16 lg:pt-[86px]   px-5 sm:px-10 md:px-12  ">
         <div className="absolute hidden md:block bg-footer-grad bottom-0 right-0 z-10" />
         <div className="flex flex-col">
-          <div className="grid grid-cols-12 gap-3 lg:gap-4 xl:gap-6 justify-items-center xl:justify-items-start   ">
+          <div className="grid grid-cols-12 gap-3 lg:gap-4 xl:gap-6 justify-items-center xl:justify-items-start--   ">
             {/* left */}
-            <div className=" col-span-12 xl:col-span-6">
+            <div className=" col-span-12 lg:col-span-4">
               <div className="flex flex-col space-y-3">
-                <h3 className="font-sora  font-light text-white  text-2xl md:text-4xl lg:text-5xl text-center xl:text-start ">
+                <h3 className="font-sora  font-light text-white  text-2xl md:text-4xl lg:text-5xl text-center lg:text-start footer-heading ">
                   Call us / text us,
                 </h3>
-                <p className="font-sora font-normal text-3xl sm:text-4xl  md:text-5xl lg:text-6xl">
+                <p className="font-sora font-normal text-3xl sm:text-4xl  md:text-5xl lg:text-6xl footer-heading-2">
                   Let’s get to work!
                 </p>
               </div>
             </div>
             {/* right */}
-            <div className=" flex flex-col  col-span-12 xl:col-span-6 ">
-              <div className=" xl:flex-col xl:space-y-6 flex flex-col sm:flex-row xl:items-start xl:justify-start items-center justify-center space-x-2  ">
+            <div className=" flex flex-col  col-span-12 lg:col-span-8 ">
+              <div className=" xl:flex-col xl:space-y-6 flex flex-col sm:flex-row xl:items-start lg:justify-start items-center justify-center space-x-2  ">
                 <Link
                   href={"mailto:info@chevalme.com"}
                   className="font-sora font-normal text-base sm:text-2xl md:text-3xl xl:text-[42px] "
@@ -51,7 +48,7 @@ const NewFooter = () => {
                   +971 50 356 0927
                 </Link>
               </div>
-              <div className=" hidden md:flex  flex-col sm:flex-row items-center justify-center  gap-[20px] md:gap-[50px] 2xl:gap-[69px]  w-full py-10 sm:py-14 md:pt-14 pb-10 z-50 ">
+              <div className=" hidden md:flex  flex-col sm:flex-row items-center justify-start  gap-[20px] md:gap-[50px] 2xl:gap-[69px]  w-full py-10 sm:py-14 md:pt-14 pb-10 z-50 footer_main ">
                 <div className="flex flex-col  space-y-4  items-center justify-center md:items-start md:justify-start">
                   <div>
                     <h6 className="font-satoshi  text-xl sm:text-sm md:text-base font-medium  text-white mb-2 flex items-center justify-center ">
@@ -203,7 +200,7 @@ const NewFooter = () => {
           <div className="w-full pt-0 sm:pt-10-- z-50 pb-5 hidden md:block">
             <div
               className={
-                "grid grid-cols-12 gap-3 lg:gap-4 xl:gap-6 justify-items-center xl:justify-items-start mx-auto "
+                "grid grid-cols-12 gap-3 lg:gap-4 xl:gap-6 justify-items-center lg:justify-items-start mx-auto-- "
               }
             >
               <div className="md:flex hidden  col-span-9 flex-row space-x-4  xl:space-x-5 mt-5 xl:mt-0 items-end ">
@@ -218,7 +215,7 @@ const NewFooter = () => {
                 </Link>
               </div>
 
-              <div className="col-span-3 flex  w-full  items-start justify-start xl:justify-end xl:items-end">
+              <div className="col-span-3 flex  w-full  items-start justify-start  lg:justify-end lg:items-end">
                 <Link
                   href={"#"}
                   className="h-[50px]  w-[50px] xl:h-[60px]  xl:w-[60px]  rounded-full  items-center justify-center border border-white hover:border-[#d81100] duration-300 transition-all  flex  justify-self-end "

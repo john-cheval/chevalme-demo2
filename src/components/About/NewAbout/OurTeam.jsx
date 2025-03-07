@@ -19,7 +19,7 @@ const OurTeam = ({ title, team, data }) => {
       className="px-5 sm:px-10 md:px-12 bg-about-member-gradient lg:rounded-tr-[60px] lg:rounded-tl-[60px] pt-14 -mt-16 relative"
       style={{ zIndex: 4 }}
     >
-      <h1 className="mb-8 text-center text-[#101763] lg:text-start  font-sora text-3xl sm:text-4xl lg:text-6xl font-normal leading-[133%] tracking-[-1.76px]">
+      <h1 className="mb-8 text-center text-[#101763] lg:text-start  font-sora text-3xl sm:text-4xl lg:text-6xl font-normal leading-[133%] tracking-[-1.76px] heading2">
         {title}
       </h1>
 
@@ -51,10 +51,10 @@ const OurTeam = ({ title, team, data }) => {
               <div className="content font-satoshi">
                 <h1>{item?.title}</h1>
                 <h3>{item?.position}</h3>
-                <p
-                  className="space-y-3"
+                <div
+                  className="space-y-3 para team-des"
                   dangerouslySetInnerHTML={{ __html: item?.description }}
-                ></p>
+                ></div>
 
                 {item?.linkedin_link && (
                   <Link

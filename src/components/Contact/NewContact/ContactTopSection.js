@@ -48,7 +48,7 @@ const ContactHeader = () => {
   }, []);
 
   return (
-    <div className="relative w-screen pt-28 sm:pt-36 md:pt-40 lg:pt-44 xl:pt-[17rem]  overflow-hidden mt-7--">
+    <div className="relative w-screen pt-28 sm:pt-36 md:pt-40 lg:pt-44 xl:pt-[17rem]  overflow-hidden mt-7-- contact-header">
       <Image
         src={contactHeader}
         alt="Contact Header"
@@ -75,7 +75,7 @@ const ContactHeader = () => {
                 height={100}
                 width={100}
                 style={{
-                  height: `${index === 1 || index === 4 ? "200px" : "250px"}`,
+                  height: `${index === 1 || index === 4 ? "232px" : "250px"}`,
                 }}
               />
             </div>

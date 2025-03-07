@@ -7,8 +7,30 @@ import SeoSectionTwo from "@/components/SeoPage/SeoSectionTwo";
 // import ServicesInnerSection1 from "@/components/ServicesInner/ServicesInnerSection1";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
+import {
+  eCommerce,
+  mobileApps,
+  webDev,
+  websites,
+  branding,
+  customDesign,
+  uiUx,
+  digitalMarketing,
+  seo,
+  socialMedia,
+} from "@/data/NavbarLinks";
 
 function ServicesInner({ params }) {
+  const navLinks = [
+    { name: "About", path: "/about" },
+    { name: "Work", path: "/projects" },
+    { name: "Services", path: "/services" },
+    { name: "Contact", path: "/contact-us" },
+  ];
+
+  const codeLinks = { eCommerce, mobileApps, webDev, websites };
+  const craftLinks = { branding, customDesign, uiUx };
+  const convertLinks = { seo, socialMedia, digitalMarketing };
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [dataLoading, setDataLoading] = useState(true);
@@ -43,7 +65,12 @@ function ServicesInner({ params }) {
     </>
   ) : (
     <>
-      <NewHeader />
+      <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      />
       <SeoSectionOne
         title={"Android App Development Company in Dubai, UAE"}
         linkText={"Start Your Journey Today "}

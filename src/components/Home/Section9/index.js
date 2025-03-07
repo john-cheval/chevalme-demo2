@@ -47,7 +47,7 @@ function Section9({ data, title }) {
             <ChildrenReveal
               x={0}
               y={20}
-              styling="font-sora text-center sm:text-left font-semibold leading-tight text-[#101763] text-3xl sm:text-4xl lg:text-5xl "
+              styling="font-sora text-center sm:text-left font-semibold leading-tight text-[#101763] text-3xl sm:text-4xl lg:text-5xl heading2 "
             >
               {title}
             </ChildrenReveal>
@@ -119,7 +119,7 @@ function Section9({ data, title }) {
                         dangerouslySetInnerHTML={{
                           __html: truncateHTML(data.content.rendered),
                         }}
-                        className="font-satoshi paragraphText-Size transition-all duration-300 text-[#BFBFBF] group-hover:text-[#101763] line-clamp-3 sm:text-left text-center "
+                        className="font-satoshi para paragraphText-Size transition-all duration-300 text-[#BFBFBF] group-hover:text-[#101763] line-clamp-3 sm:text-left text-center "
                       ></p>
                       <p className="text-xs my-3 text-center md:text-left group-hover:text-[#D81100] underline underline-offset-8 transition-all duration-300 text-[#BFBFBF]">
                         Read more

@@ -65,9 +65,9 @@ const ServiceInnerContent = ({ services, serviceHeading }) => {
                     // style={{ background: style.bg }}
                   >
                     <div
-                      className={`col-span-8 pl-14 lg:pl-28 pt-14 lg:pt-28 pb-20 space-y-3 lg:space-y-5 text-black`}
+                      className={`col-span-8 pl-14 lg:pl-28 pt-14 lg:pt-28 pb-20 space-y-3 lg:space-y-5 text-black service_inner_padd`}
                     >
-                      <h3 className="font-sora text-lg  text-start md:text-3xl lg:text-[40px] font-normal leading-[135%] tracking-[-0.4px] ">
+                      <h3 className="font-sora text-lg  text-start md:text-3xl lg:text-[40px] font-normal leading-[135%] tracking-[-0.4px] serviceHeading">
                         {item?.title}
                       </h3>
                       <p
@@ -127,7 +127,7 @@ const ServiceInnerContent = ({ services, serviceHeading }) => {
                             dangerouslySetInnerHTML={{
                               __html: item?.description,
                             }}
-                            className="font-satoshi text-[14px] leading-[154%] space-y-2 mb-9--"
+                            className="font-satoshi text-[14px] leading-[154%] space-y-2 mb-9-- para"
                           />
 
                           {item?.link && (
@@ -145,14 +145,14 @@ const ServiceInnerContent = ({ services, serviceHeading }) => {
                         <div
                           className={`py-7 px-7 text-black  space-y-4 md:space-y-0`}
                         >
-                          <h3 className="font-sora text-base sm:text-xl jtext-start font-normal leading-[135%] tracking-[-0.4px] capitalize">
+                          <h3 className="font-sora text-base sm:text-xl jtext-start font-normal leading-[135%] tracking-[-0.4px] capitalize heading2">
                             {item?.title}
                           </h3>
                           <p
                             dangerouslySetInnerHTML={{
                               __html: item?.description,
                             }}
-                            className="font-satoshi text-[14px] leading-[154%] space-y-2 mb-9"
+                            className="font-satoshi text-[14px] leading-[154%] space-y-2 mb-9 para"
                           />
                           <ArrowRight size={40} className="mx-auto" />
                         </div>

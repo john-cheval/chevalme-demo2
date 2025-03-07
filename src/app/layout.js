@@ -1,4 +1,5 @@
 /** @format */
+
 import { Sora } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       translate="no"
     >
       <head>
+        <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* Google Tag (gtag.js) */}
         <Script
@@ -113,7 +115,10 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@chevalme" />
-        <meta name="google-site-verification" content="LI96np1O26yResby75_7Mzy4Ro-bLpGR2I5H8YKndwQ" />
+        <meta
+          name="google-site-verification"
+          content="YbB6z89M0yPuoamiqG8bPFz3wMP1p5QRhXO8ni6oxXk"
+        />
       </head>
       <body className={sora.variable}>
         <div>

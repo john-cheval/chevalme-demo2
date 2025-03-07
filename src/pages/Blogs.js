@@ -7,14 +7,12 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
 
-function BlogsPage() {
+function BlogsPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data, loading: blogLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/wp/v2/posts?_embed"
   );
-
-  console.log(data);
 
   useEffect(() => {
     if (!blogLoading) {
@@ -27,7 +25,12 @@ function BlogsPage() {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       <BlogsSection1 data={data} />
       <NewFooter />
     </>

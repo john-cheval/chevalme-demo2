@@ -148,8 +148,8 @@ function Section5({ data }) {
                         <div className="absolute inset-0"></div>
                       </div>
 
-                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:right-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 z-20">
-                        <h1 className="font-sora   -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5">
+                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:right-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 z-20 workContainer">
+                        <h1 className="font-sora   -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5 heading2">
                           {data[key].home_title.split(" ")[0] +
                             " " +
                             (data[key].home_title.split(" ")[1]
@@ -253,8 +253,8 @@ function Section5({ data }) {
                         )}
                       </div>
 
-                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:left-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 z-20">
-                        <h1 className="font-sora   -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5">
+                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:left-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 workContainer z-20">
+                        <h1 className="font-sora   -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5 heading2">
                           {data[key].home_title.split(" ")[0] +
                             " " +
                             (data[key].home_title.split(" ")[1]
@@ -363,8 +363,8 @@ function Section5({ data }) {
                         )}
                       </div>
 
-                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:right-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 z-20">
-                        <h1 className="font-sora   -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5">
+                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:right-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 workContainer z-20">
+                        <h1 className="font-sora   -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5 heading2">
                           {data[key].home_title.split(" ")[0] +
                             " " +
                             (data[key].home_title.split(" ")[1]
@@ -475,8 +475,8 @@ function Section5({ data }) {
                         )}
                       </div>
 
-                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:left-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 z-20">
-                        <h1 className="font-sora  -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5">
+                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:left-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 workContainer z-20">
+                        <h1 className="font-sora  -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5 heading2">
                           {data[key].home_title.split(" ")[0] +
                             " " +
                             (data[key].home_title.split(" ")[1]
@@ -593,8 +593,8 @@ function Section5({ data }) {
                         )}
                       </div>
 
-                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:right-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 z-20">
-                        <h1 className="font-sora  -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5">
+                      <div className="flex flex-col py-4  sm:pt-[40px] md:pt-[60px] px-2 sm:px-10 lg:px-16 sm:justify-center  md:justify-normal md:items-start items-center   h-1/2 sm:h-full sm:right-0 relative sm:absolute sm:top-0 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 workContainer z-20">
+                        <h1 className="font-sora  -ml-[12px]  text-3xl sm:text-5xl md:text-6xl lg:text-7xl  2xl:text-[5.3rem] tracking-tighter text-black sm:text-white font-extralight mb-3 md:mb-5 heading2">
                           {data[key].home_title.split(" ")[0] +
                             " " +
                             (data[key].home_title.split(" ")[1]

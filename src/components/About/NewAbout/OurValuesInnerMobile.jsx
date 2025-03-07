@@ -23,7 +23,7 @@ const OurValuesInnerMobile = ({ valuesData }) => {
               </h2>
               <p
                 dangerouslySetInnerHTML={{ __html: values?.description }}
-                className="text-center  mt-2 --ml-6 text-black   font-satoshi text-sm sm:text-base leading-[155%]"
+                className="text-center  mt-2 --ml-6 text-black   font-satoshi text-sm para sm:text-base leading-[155%]"
               ></p>
             </div>
 

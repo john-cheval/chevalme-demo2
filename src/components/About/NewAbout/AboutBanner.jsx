@@ -300,7 +300,7 @@ const AboutBanner = ({ bannerData, bannerPopupVideo }) => {
             id="aboutSectionCards"
             className="h-fit-- bg-transparent overflow-y-visible md:bg-[#F6F6F4] items-center md:items-start justify-center-- flex flex-col md:flex-row space-x-0 md:space-y-0 space-y-4 md:space-x-3 lg:px-10-- xl:px-20-- pb-5-- w-full px-5 sm:px-10 md:px-12 "
           >
-            <div className="about-card rounded-xl bg-[#F1F1F1] flex lg:flex-row flex-col  h-[180px] md:h-[280px] lg:h-[270px] text-[#101763] space-x-3 items-center justify-center px-6  xl:px-7 w-full sm:w-[80%] md:w-1/3 ">
+            <div className="about-card aboutCard rounded-xl bg-[#F1F1F1] flex lg:flex-row flex-col  h-[180px] md:h-[280px] lg:h-[270px] text-[#101763] space-x-3 items-center justify-center px-6  xl:px-7 w-full sm:w-[80%] md:w-1/3 ">
               <h4 className="text-2xl sm:text-4xl md:text-3xl xl:text-5xl text-center font-sora tracking-tight  font-semibold">
                 {bannerData?.[0]?.total_count || 600}+
               </h4>
@@ -308,14 +308,14 @@ const AboutBanner = ({ bannerData, bannerPopupVideo }) => {
                 <h4 className="font-semibold text-xl sm:text-2xl md:text-3xl xl:text-4xl ">
                   {bannerData?.[0]?.title || "Happy Clients"}
                 </h4>
-                <p className="font-normal  text-xs sm:text-sm   lg:text-base w-full text-center lg:text-left">
+                <p className="font-normal  text-xs sm:text-sm   lg:text-base w-full text-center lg:text-left para">
                   {bannerData?.[0]?.description ||
                     "Delivering success across diverse projects, including websites, mobile apps, softwares, CRM solutions, and more."}
                 </p>
               </div>
             </div>
 
-            <div className="about-card rounded-xl bg-[#D81100] flex lg:flex-row flex-col h-[180px] md:h-[280px] lg:h-[270px] text-white space-x-3 items-center justify-center px-6  xl:px-7 w-full sm:w-[80%] md:w-1/3">
+            <div className="about-card aboutCard rounded-xl bg-[#D81100] flex lg:flex-row flex-col h-[180px] md:h-[280px] lg:h-[270px] text-white space-x-3 items-center justify-center px-6  xl:px-7 w-full sm:w-[80%] md:w-1/3">
               <h4 className="text-2xl sm:text-4xl md:text-3xl xl:text-5xl text-center font-sora tracking-tight  font-semibold">
                 {bannerData?.[1]?.total_count || 30}+
               </h4>
@@ -324,15 +324,15 @@ const AboutBanner = ({ bannerData, bannerPopupVideo }) => {
                   {" "}
                   {bannerData?.[1]?.title || "Experienced Team"}
                 </h4>
-                <p className="font-normal text-xs sm:text-sm   lg:text-base w-full">
+                <p className="font-normal text-xs sm:text-sm para  lg:text-base w-full">
                   {bannerData?.[1]?.description ||
                     "A skilled team of developers, designers, business analysts, and project managers across UAE and Asia driving innovation and excellence in every project."}
                 </p>
               </div>
             </div>
 
-            <div className="about-card rounded-xl bg-[#101763] flex lg:flex-row flex-col  h-[180px] md:h-[280px] lg:h-[270px] text-white items-center justify-center px-6  xl:px-7 w-full sm:w-[80%] md:w-1/3 space-x-2">
-              <div className="flex lg:flex-row flex-col items-center  font-satoshi space-x-3">
+            <div className="about-card aboutCard rounded-xl bg-[#101763] flex lg:flex-row flex-col  h-[180px] md:h-[280px] lg:h-[270px] text-white items-center justify-center px-6  xl:px-7 w-full sm:w-[80%] md:w-1/3 space-x-2">
+              <div className="flex lg:flex-row flex-col items-center  font-satoshi md:space-x-3">
                 <h4 className="text-2xl sm:text-4xl md:text-3xl xl:text-5xl text-center font-sora tracking-tight  font-semibold">
                   {bannerData?.[2]?.total_count || 800}+
                 </h4>
@@ -340,7 +340,7 @@ const AboutBanner = ({ bannerData, bannerPopupVideo }) => {
                   <h4 className=" font-semibold text-xl sm:text-2xl md:text-3xl xl:text-4xl ">
                     {bannerData?.[2]?.title || "Projects"}
                   </h4>
-                  <p className="font-normal text-xs sm:text-sm   lg:text-base w-full">
+                  <p className="font-normal text-xs sm:text-sm para  lg:text-base w-full">
                     {bannerData?.[2]?.description ||
                       "Proven expertise with 800+ projects delivered across diverse industries and technologies."}
                   </p>

@@ -13,7 +13,7 @@ async function generateMetadataData(id, path, slug = false) {
       "Partner with top Web Developers in Dubai at Cheval. We Specialize in Mobile App and Software Development, delivering cutting-edge tailored digital solutions.";
     const image =
       data?.meta_image ||
-      "https://bunny-wp-pullzone-1uo9uvm3si.b-cdn.net/wp-content/uploads/2025/02/creative-2.jpg";
+      "https://bunny-wp-pullzone-1uo9uvm3si.b-cdn.net/wp-content/uploads/2025/03/cheval-social.jpg";
 
     return {
       title,

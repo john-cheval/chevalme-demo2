@@ -30,8 +30,14 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 
-function ContactPage() {
-  const { data: services, loading } = useFetch(
+function ContactPage({
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+  services,
+}) {
+  const { data: servicess, loading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/services"
   );
 
@@ -42,7 +48,12 @@ function ContactPage() {
   ) : (
     <>
       <div className="bg-white m-0 p-0">
-        <NewHeader />
+        {/* <NewHeader
+          navLinks={navLinks}
+          codeLinks={codeLinks}
+          craftLinks={craftLinks}
+          convertLinks={convertLinks}
+        /> */}
         <ContactTopSection />
         <ContactMiddleSection />
         <ContactForm services={services} title="Start a conversation." />

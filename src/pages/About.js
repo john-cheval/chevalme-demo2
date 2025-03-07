@@ -30,22 +30,24 @@ import LoadingAnimation from "@/util/LoadingAnimation";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 
-function AboutPage() {
+function AboutPage({
+  aboutData,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+  navLinks,
+}) {
   const [loading, setLoading] = useState(true);
-
-  const { data: aboutData, loading: aboutLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=100"
-  );
 
   const { data: clients, loading: clientLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/all_clients"
   );
 
   useEffect(() => {
-    if (!aboutLoading && !clientLoading) {
+    if (!clientLoading) {
       setLoading(false);
     }
-  }, [aboutLoading, clientLoading]);
+  }, [clientLoading]);
 
   return loading ? (
     <>
@@ -53,7 +55,12 @@ function AboutPage() {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       {aboutData && (
         <div className="bg-about-member-gradient">
           <AboutHeader

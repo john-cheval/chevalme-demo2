@@ -4,22 +4,22 @@ import OurTeam from "./OurTeam";
 const VerticalStackCards = ({ cardData }) => {
   return (
     <div className="relative min-h-screen px-5 sm:px-10 md:px-12">
-      <div className="px-5 sm:px-10 pt-14 md:px-12 w-full h-[465px] sticky top-0 bg-[#141414] rounded-tr-[30px] rounded-tl-[30px]    lg:rounded-tr-[60px] lg:rounded-tl-[60px] overflow-hidden">
+      <div className="px-5 sm:px-10 pt-14 md:px-12 w-full h-[465px] sticky top-0 bg-[#141414] rounded-tr-[30px] rounded-tl-[30px]    lg:rounded-tr-[60px] lg:rounded-tl-[60px] overflow-hidden verticalCards">
         <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-x-5 gap-y-4 lg:gap-y-0">
-          <h3 className="font-sora text-3xl sm:text-4xl lg:text-6xl font-normal leading-[133%] tracking-[-2.4px] w-full text-white lg:text-start text-center">
+          <h3 className="font-sora text-3xl sm:text-4xl lg:text-6xl font-normal leading-[133%] tracking-[-2.4px] w-full text-white lg:text-start text-center heading2">
             {cardData?.cando_attitude_heading}
           </h3>
           <p
             dangerouslySetInnerHTML={{
               __html: cardData?.cando_attitude_description,
             }}
-            className="space-y-3 lg:space-y-8 font-satoshi text-sm md:text-base font-normal leading-[154%] text-white text-center lg:text-start"
+            className="space-y-3 lg:space-y-8 font-satoshi text-sm md:text-base font-normal leading-[154%] text-white text-center lg:text-start para"
           />
         </div>
       </div>
 
       <div
-        className="-mt-16 w-full h-[465px] sticky top-0  rounded-tr-[30px] rounded-tl-[30px] lg:rounded-tr-[60px] lg:rounded-tl-[60px] overflow-hidden"
+        className="-mt-16 w-full h-[465px] sticky top-0  rounded-tr-[30px] rounded-tl-[30px] lg:rounded-tr-[60px] lg:rounded-tl-[60px] overflow-hidden verticalCards"
         style={{ zIndex: 2 }}
       >
         <Image
@@ -31,12 +31,12 @@ const VerticalStackCards = ({ cardData }) => {
       </div>
 
       <div
-        className="px-5 sm:px-10 md:px-12 -mt-16 w-full h-[465px] sticky top-0 pt-14 bg-[#fff]  rounded-tr-[30px] rounded-tl-[30px] lg:rounded-tr-[60px] lg:rounded-tl-[60px] overflow-hidden"
+        className="px-5 sm:px-10 md:px-12 -mt-16 w-full h-[465px] sticky top-0 pt-14 bg-[#fff]  rounded-tr-[30px] rounded-tl-[30px] lg:rounded-tr-[60px] lg:rounded-tl-[60px] overflow-hiddenverticalCards"
         style={{ zIndex: 3 }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-x-5 gap-y-4 lg:gap-y-0">
           <h3
-            className="font-sora text-[#101763] text-3xl sm:text-4xl lg:text-6xl font-normal lg:text-start leading-[154%] tracking-[-2.4px] w-full text-center lg:w-[634px]"
+            className="font-sora text-[#101763] text-3xl sm:text-4xl lg:text-6xl font-normal lg:text-start leading-[154%] tracking-[-2.4px] w-full text-center heading2"
             style={{
               lineHeight: "1.2",
             }}
@@ -44,7 +44,7 @@ const VerticalStackCards = ({ cardData }) => {
             {cardData?.our_team_heading}
           </h3>
           <p
-            className="font-satoshi text-sm md:text-base font-normal leading-[154%] text-[#000] space-y-3 md:space-y-8 text-center lg:text-start md:ml-0 ml-7"
+            className="font-satoshi text-sm md:text-base font-normal leading-[154%] text-[#000] space-y-3 md:space-y-8 text-center lg:text-start md:ml-0 ml-7 para"
             dangerouslySetInnerHTML={{ __html: cardData?.our_team_description }}
           />
         </div>

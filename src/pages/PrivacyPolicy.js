@@ -1,15 +1,25 @@
 "use client";
-import NewFooter from "@/components/Footer/NewFooter";
-import NewHeader from "@/components/NewHeader/NewHeader";
-import PrivacyPolicyContent from "@/components/PrivacyPolicy/PrivacyPolicyContent";
+
 import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
+import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
+const NewFooter = dynamic(() => import("@/components/Footer/NewFooter"));
+const NewHeader = dynamic(() => import("@/components/NewHeader/NewHeader"));
+const PrivacyPolicyContent = dynamic(
+  () => import("@/components/PrivacyPolicy/PrivacyPolicyContent")
+);
 
-const PrivacyPolicyPage = () => {
+const PrivacyPolicyPage = ({
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+  privacyData,
+}) => {
   const [loading, setLoading] = useState(false);
 
-  const { data: privacyData, loading: privacyLoading } = useFetch(
+  const { data: privacyDatas, loading: privacyLoading } = useFetch(
     "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?ID=165"
   );
 
@@ -25,7 +35,12 @@ const PrivacyPolicyPage = () => {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       <PrivacyPolicyContent
         content={privacyData?.post_content}
         title={privacyData?.post_title}

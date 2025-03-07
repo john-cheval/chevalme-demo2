@@ -46,7 +46,7 @@ function Section10({ data }) {
           <div className="flex items-center justify-center sm:justify-between w-full px-5 sm:px-10 md:px-12 ">
             <MaskText
               text={"Clients"}
-              styling="font-sora text-center sm:text-left font-semibold leading-tight text-[#101763] text-3xl sm:text-4xl lg:text-5xl "
+              styling="font-sora text-center sm:text-left font-semibold leading-tight text-[#101763] text-3xl sm:text-4xl lg:text-5xl workContainer "
             />
             <ChildrenReveal
               x={0}

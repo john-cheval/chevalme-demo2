@@ -1,14 +1,25 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import arrowDown from "../../../../public/Contact/arrow_down.png";
 import arrowForward from "../../../../public/Contact/arrow-white.png";
 import axios from "axios";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import ReCaptcha from "@/util/reCaptcha";
 
 const ContactForm = ({ services, title }) => {
+  const recaptchaRef = useRef(null);
   const router = usePathname();
   const formRef = useRef(null);
+  const [token, setToken] = useState("");
+  const [submitEnabled, setSubmitEnabled] = useState(false);
+
+  useEffect(() => {
+    if (token.length) {
+      setSubmitEnabled(true);
+    }
+  }, [token]);
   const [formData, setFormData] = useState({
     textName: "",
     textPhone: "",
@@ -20,10 +31,18 @@ const ContactForm = ({ services, title }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+    if (name === "textPhone" && value.length <= 15 && /^[0-9]*$/.test(value)) {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    } else if (name !== "textPhone") {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -44,8 +63,24 @@ const ContactForm = ({ services, title }) => {
         data: newformData,
         headers: { "Content-Type": "multipart/form-data" },
       });
+
       if (!response) {
         throw new Error("Network response was not ok");
+      }
+
+      if (!token) {
+        toast.error("Please verify the reCAPTCHA", {
+          autoClose: 1500,
+        });
+        return;
+      }
+      toast.success("From Submitted Successfully", {
+        autoClose: 2500,
+      });
+      setToken("");
+      setSubmitEnabled(false);
+      if (recaptchaRef.current) {
+        recaptchaRef.current.resetCaptcha();
       }
       setFormData({
         textName: "",
@@ -58,6 +93,12 @@ const ContactForm = ({ services, title }) => {
     } catch (error) {
       console.log(error.message);
     }
+  };
+
+  console.log(token, "hhhh");
+
+  const handleToken = (token) => {
+    setToken(token);
   };
   return (
     <div
@@ -91,6 +132,7 @@ const ContactForm = ({ services, title }) => {
                 name="textName"
                 value={formData.textName}
                 onChange={handleChange}
+                autoComplete="off"
                 required
                 maxLength={50}
                 className="   w-full sm:max-w-[350px] md:w-[450px] xl:w-[575px] h-[73px] border border-[#d9d9d9] rounded-lg block pl-7 py-6 bg-white outline-none focus:ring-0 text-[#101763] font-satoshi text-base placeholder-font-satoshi placeholder-[#101763] font-normal leading-[154%]"
@@ -112,6 +154,7 @@ const ContactForm = ({ services, title }) => {
                 value={formData.textPhone}
                 onChange={handleChange}
                 maxLength={15}
+                autoComplete="off"
                 required
                 className=" w-full sm:max-w-[350px] md:w-[450px] xl:w-[575px] h-[73px] border border-[#d9d9d9] rounded-lg block pl-7 py-6 bg-white outline-none focus:ring-0 text-[#101763] font-satoshi text-base placeholder-font-satoshi placeholder-[#101763] font-normal leading-[154%] appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                 placeholder="Enter Phone"
@@ -134,6 +177,7 @@ const ContactForm = ({ services, title }) => {
                 value={formData.emailAddress}
                 onChange={handleChange}
                 maxLength={50}
+                autoComplete="off"
                 required
                 className=" w-full sm:max-w-[350px] md:w-[450px] xl:w-[575px] h-[73px] border border-[#d9d9d9] rounded-lg block pl-7 py-6 bg-white outline-none focus:ring-0 text-[#101763] font-satoshi text-base placeholder-font-satoshi placeholder-[#101763] font-normal leading-[154%]"
                 placeholder="Enter Email"
@@ -192,7 +236,8 @@ const ContactForm = ({ services, title }) => {
               name="textareaMsg"
               value={formData.textareaMsg}
               onChange={handleChange}
-              maxLength={200}
+              autoComplete="off"
+              maxLength={2000}
               className="w-full h-[116px] border border-[#d9d9d9] rounded-lg block pl-7 py-6 bg-white outline-none focus:ring-0 text-[#101763] font-satoshi text-base placeholder-font-satoshi placeholder-[#101763] font-normal leading-[154%] resize-none"
               placeholder="Enter Message"
             ></textarea>
@@ -204,18 +249,26 @@ const ContactForm = ({ services, title }) => {
             </label>
           </div>
 
-          <button
-            type="submit"
-            className="w-[229px]  h-[59px] flex items-center justify-center bg-[#d81100] font-satoshi text-base font-medium leading-[154%] space-x-9 text-white rounded-lg mx-auto group hover:bg-[#101763] transition-all duration-500 "
-          >
-            Send a Request
-            <Image
-              src={arrowForward}
-              alt="arrow_right"
-              className="w-[33px] h-[33px] ml-2 group-hover:translate-x-3 transition-all"
+          <div className="flex flex-col justify-center items-center gap-[8px] mt-[23px]">
+            <ReCaptcha
+              siteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              callback={handleToken}
+              ref={recaptchaRef}
             />
-          </button>
+            <button
+              type="submit"
+              className="w-[229px]  h-[59px] flex items-center justify-center bg-[#d81100] font-satoshi text-base font-medium leading-[154%] space-x-9 text-white rounded-lg mx-auto group hover:bg-[#101763] transition-all duration-500 "
+            >
+              Send a Request
+              <Image
+                src={arrowForward}
+                alt="arrow_right"
+                className="w-[33px] h-[33px] ml-2 group-hover:translate-x-3 transition-all"
+              />
+            </button>
+          </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );

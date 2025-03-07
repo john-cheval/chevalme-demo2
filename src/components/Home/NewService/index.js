@@ -6,16 +6,13 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const NewService = ({ data, title }) => {
-  useEffect(() => {
-    console.log(window.innerWidth, "inner width");
-  }, []);
   return (
     <div className="relative px-5 sm:px-10 md:px-12  w-screen h-fit bg-[#F6F6F4] overflow-x-hidden">
       <div className="relative  mx-auto w-full ">
         <div className="w-full flex items-center  pt-8 sm:pt-14 md:pt-0    h-fit pb-8   flex-col ">
           <MaskText
             text={title}
-            styling="text-center font-sora font-semibold  md:max-w-[800px]  text-3xl sm:text-4xl  lg:text-5xl  text-[#101763]"
+            styling="text-center font-sora font-semibold  md:max-w-[800px]  text-3xl sm:text-4xl  lg:text-5xl heading2  text-[#101763]"
           />
           <ChildrenReveal
             x={0}

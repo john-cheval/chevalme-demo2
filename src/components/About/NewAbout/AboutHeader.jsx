@@ -17,7 +17,7 @@ const AboutHeader = ({ content, heading }) => {
           dangerouslySetInnerHTML={{
             __html: content,
           }}
-          className="text-[#464646] text-xs text-center lg:text-start md:text-base font-sora font-normal leading-[187%]  w-full space-y-3"
+          className="text-[#464646] text-xs para text-center lg:text-start md:text-base font-sora font-normal leading-[187%]  w-full space-y-3"
           style={{
             lineHeight: "187%",
           }}

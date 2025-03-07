@@ -8,7 +8,7 @@ import useFetch from "@/hooks/useFetch";
 import LoadingAnimation from "@/util/LoadingAnimation";
 import React, { useEffect, useState } from "react";
 
-function BlogsInnerPage({ id }) {
+function BlogsInnerPage({ id, navLinks, codeLinks, craftLinks, convertLinks }) {
   const [loading, setLoading] = useState(true);
 
   const { data, loading: dataLoading } = useFetch(
@@ -30,7 +30,12 @@ function BlogsInnerPage({ id }) {
     </>
   ) : (
     <>
-      <NewHeader />
+      {/* <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      /> */}
       <BlogsInnerSection1 data={data} />
       <BlogsInnerSection2 data={data2} blogID={id} />
       <NewFooter />

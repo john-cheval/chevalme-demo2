@@ -39,24 +39,20 @@ const ContactForm = dynamic(
   { ssr: false }
 );
 
-function ServicesInnerPage({ serviceId }) {
+function ServicesInnerPage({
+  data,
+  services,
+  navLinks,
+  codeLinks,
+  craftLinks,
+  convertLinks,
+}) {
   const [split, setSplit] = useState(null);
   const [gallery, setGallery] = useState(null);
   const [galleryLoading, setGalleryLoading] = useState(true);
 
   const [loading, setLoading] = useState(true);
 
-  const { data, loading: dataLoading } = useFetch(
-    `https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/full_details?slug=${serviceId}&meta_type=service`
-  );
-
-  const { data: data2, loading: data2Loading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/services"
-  );
-
-  const { data: services, serviceLoading } = useFetch(
-    "https://d331b20430.nxcli.net/chevalapi/wp-json/custom/v1/services"
-  );
   useEffect(() => {
     const fetchGallery = async () => {
       try {
@@ -77,18 +73,23 @@ function ServicesInnerPage({ serviceId }) {
   }, []);
 
   useEffect(() => {
-    if (!dataLoading && !data2Loading && !galleryLoading && !serviceLoading) {
+    if (!galleryLoading) {
       setSplit(gallery.show_off_gallery.length / 2);
       setLoading(false);
     }
-  }, [dataLoading, data2Loading, galleryLoading, serviceLoading]);
+  }, [galleryLoading]);
   return loading ? (
     <>
       <LoadingAnimation />
     </>
   ) : (
     <>
-      <NewHeader />
+      <NewHeader
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      />
       {data?.services_slider && (
         <ServiceInnerSwipper slides={data?.services_slider} />
       )}

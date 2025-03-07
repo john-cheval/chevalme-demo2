@@ -1,6 +1,18 @@
 import { notFound } from "next/navigation";
 import LocalInnerPage from "./LocalInnerPage";
 import generateMetadataData from "@/util/generateMetaTitle";
+import {
+  eCommerce,
+  mobileApps,
+  webDev,
+  websites,
+  branding,
+  customDesign,
+  uiUx,
+  digitalMarketing,
+  seo,
+  socialMedia,
+} from "@/data/NavbarLinks";
 
 async function fetchData(id) {
   const res = await fetch(
@@ -16,6 +28,16 @@ export async function generateMetadata({ params }) {
 }
 const LocationSubPage = async ({ params }) => {
   const data = await fetchData((await params).id);
+  const navLinks = [
+    { name: "About", path: "/about" },
+    { name: "Work", path: "/projects" },
+    { name: "Services", path: "/services" },
+    { name: "Contact", path: "/contact-us" },
+  ];
+
+  const codeLinks = { eCommerce, mobileApps, webDev, websites };
+  const craftLinks = { branding, customDesign, uiUx };
+  const convertLinks = { seo, socialMedia, digitalMarketing };
 
   if (!data) {
     notFound();
@@ -23,7 +45,13 @@ const LocationSubPage = async ({ params }) => {
 
   return (
     <>
-      <LocalInnerPage pageData={data?.page_template_name} />
+      <LocalInnerPage
+        pageData={data?.page_template_name}
+        navLinks={navLinks}
+        codeLinks={codeLinks}
+        craftLinks={craftLinks}
+        convertLinks={convertLinks}
+      />
     </>
   );
 };

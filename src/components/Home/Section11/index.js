@@ -12,7 +12,9 @@ import useMediaQuery from "@/util/useMediaQuery";
 import TimeAgoComponent from "@/util/TimeAgoComponent";
 import Link from "next/link";
 import gsap from "gsap";
-function Section11({ data, sortedData }) {
+function Section11({ data }) {
+  const sortedData = data?.all_reviews || [];
+
   const videoRefOne = useRef(null);
   const videoRefTwo = useRef(null);
   const videoRefThree = useRef(null);
@@ -195,7 +197,7 @@ function Section11({ data, sortedData }) {
         <div className="w-full grid h-fit grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4 grid-flow-row">
           <div className="flex space-y-5 sm:space-y-10 sm:items-start items-center sm:justify-start justify-center flex-col col-span-1 h-fit">
             <h3
-              className="font-sora font-semibold text-[#101763] text-3xl text-center sm:text-left sm:text-4xl lg:text-5xl "
+              className="font-sora font-semibold text-[#101763] text-3xl text-center sm:text-left sm:text-4xl lg:text-5xl heading2 "
               style={{ lineHeight: "1.3" }}
             >
               Our Success <br className="hidden md:block" /> Stories

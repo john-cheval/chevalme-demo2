@@ -27,7 +27,7 @@ const OurTeamMobile = ({ team }) => {
               {item?.position}
             </h3>
             <p
-              className="space-y-2 text-[#838383] text-center font-satoshi text-sm font-normal leading-[154%]"
+              className="space-y-2 text-[#838383] text-center font-satoshi text-sm font-normal leading-[154%] para"
               dangerouslySetInnerHTML={{ __html: item?.description }}
             ></p>
             {item?.linkedin_link && (
