@@ -33,12 +33,12 @@ function CaseStudies({ navLinks, codeLinks, craftLinks, convertLinks, datas }) {
     </>
   ) : (
     <>
-      {/* <NewHeader
+      <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      /> */}
+      />
       <CaseStudiesSection1 data={datas} />
       <Section10 data={clients} />
       <NewFooter />

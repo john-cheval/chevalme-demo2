@@ -43,12 +43,12 @@ function SaudiArabiaPage({ navLinks, codeLinks, craftLinks, convertLinks }) {
     </>
   ) : (
     <>
-      {/* <NewHeader
+      <NewHeader
         navLinks={navLinks}
         codeLinks={codeLinks}
         craftLinks={craftLinks}
         convertLinks={convertLinks}
-      /> */}
+      />
       <Section1 />
       <LocationContact />
       <GoogleReviews data={googleReviews} sortedData={googleReviewsSorted} />
